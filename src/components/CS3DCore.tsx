@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import { Cpu, Terminal, Activity, Zap } from "lucide-react";
+import { Cpu, Terminal, Activity } from "lucide-react";
 
 interface Node3D {
   x: number;
@@ -12,7 +12,6 @@ interface Node3D {
 export function CS3DCore() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -23,7 +22,7 @@ export function CS3DCore() {
 
     let animationFrameId: number;
     let width = (canvas.width = canvas.parentElement?.clientWidth || 360);
-    let height = (canvas.height = canvas.parentElement?.clientHeight || 360);
+    let height = (canvas.height = canvas.parentElement?.clientHeight || 340);
 
     const handleResize = () => {
       if (!canvas.parentElement) return;
@@ -34,7 +33,7 @@ export function CS3DCore() {
 
     // Generate 3D Cube & Neural Node Vertices for Computer Science Core
     const nodes: Node3D[] = [];
-    const size = 95;
+    const size = 90;
 
     // 8 vertices of outer computing cube
     for (let x of [-1, 1]) {
@@ -54,14 +53,14 @@ export function CS3DCore() {
     nodes.push({ x: 0, y: -size * 1.3, z: 0 });
 
     // Floating Binary & CS Tokens
-    const codeTokens = ["0", "1", "0x77", "C++", "PY", "AI", "RADAR", "DAX", "01", "10", "λ", "{ }"];
-    const particles = Array.from({ length: 28 }, (_, i) => ({
-      x: (Math.random() - 0.5) * 300,
-      y: (Math.random() - 0.5) * 300,
-      z: (Math.random() - 0.5) * 300,
-      speed: 0.4 + Math.random() * 0.6,
+    const codeTokens = ["0", "1", "0x77", "C++", "PYTHON", "AI", "RADAR", "DAX", "01", "10", "λ", "{ }", "O(1)"];
+    const particles = Array.from({ length: 24 }, (_, i) => ({
+      x: (Math.random() - 0.5) * 280,
+      y: (Math.random() - 0.5) * 280,
+      z: (Math.random() - 0.5) * 280,
+      speed: 0.35 + Math.random() * 0.45,
       char: codeTokens[i % codeTokens.length],
-      opacity: 0.3 + Math.random() * 0.5,
+      opacity: 0.4 + Math.random() * 0.4,
     }));
 
     let angleX = 0.005;
@@ -74,17 +73,11 @@ export function CS3DCore() {
       const x = (e.clientX - rect.left - rect.width / 2) / (rect.width / 2);
       const y = (e.clientY - rect.top - rect.height / 2) / (rect.height / 2);
       setMousePos({ x, y });
-      targetAngleY = x * 0.04;
-      targetAngleX = -y * 0.04;
+      targetAngleY = x * 0.035;
+      targetAngleX = -y * 0.035;
     };
 
     canvas.addEventListener("mousemove", onMouseMove);
-    canvas.addEventListener("mouseenter", () => setIsHovered(true));
-    canvas.addEventListener("mouseleave", () => {
-      setIsHovered(false);
-      targetAngleX = 0.005;
-      targetAngleY = 0.008;
-    });
 
     let currentRotX = 0;
     let currentRotY = 0;
@@ -109,15 +102,11 @@ export function CS3DCore() {
 
       // Project vertices to 2D screen
       const projectedNodes = nodes.map((node) => {
-        // Rotate around Y
         let x1 = node.x * cosY + node.z * sinY;
         let z1 = -node.x * sinY + node.z * cosY;
-
-        // Rotate around X
         let y2 = node.y * cosX - z1 * sinX;
         let z2 = node.y * sinX + z1 * cosX;
 
-        // Perspective scale
         const scale = fov / (fov + z2 + 180);
         return {
           x: cx + x1 * scale,
@@ -127,8 +116,8 @@ export function CS3DCore() {
         };
       });
 
-      // Draw 3D Edges / Wireframe (HackerRank electric green)
-      ctx.lineWidth = 1;
+      // Draw 3D Edges / Wireframe (Flat Solid Green - NO GLOW)
+      ctx.lineWidth = 1.2;
       for (let i = 0; i < projectedNodes.length; i++) {
         for (let j = i + 1; j < projectedNodes.length; j++) {
           const dx = nodes[i].x - nodes[j].x;
@@ -136,10 +125,9 @@ export function CS3DCore() {
           const dz = nodes[i].z - nodes[j].z;
           const dist = Math.sqrt(dx * dx + dy * dy + dz * dz);
 
-          // Connect adjacent cube edges and octahedral lines
           if (dist < size * 2.1) {
             const avgScale = (projectedNodes[i].scale + projectedNodes[j].scale) / 2;
-            const alpha = Math.max(0.1, Math.min(0.65, avgScale * 0.8));
+            const alpha = Math.max(0.2, Math.min(0.85, avgScale * 0.9));
             ctx.strokeStyle = `rgba(0, 234, 100, ${alpha})`;
             ctx.beginPath();
             ctx.moveTo(projectedNodes[i].x, projectedNodes[i].y);
@@ -149,37 +137,32 @@ export function CS3DCore() {
         }
       }
 
-      // Draw Nodes / Processor Vertices
+      // Draw Nodes / Processor Vertices (Crisp Flat Circles - NO GLOW)
       projectedNodes.forEach((p, idx) => {
-        const radius = Math.max(1.8, 3.2 * p.scale);
+        const radius = Math.max(2, 3.5 * p.scale);
         ctx.beginPath();
         ctx.arc(p.x, p.y, radius, 0, Math.PI * 2);
         ctx.fillStyle = idx >= 8 ? "#FFFFFF" : "#00EA64";
-        ctx.shadowColor = "#00EA64";
-        ctx.shadowBlur = 10 * p.scale;
         ctx.fill();
-        ctx.shadowBlur = 0;
       });
 
-      // Central Quantum / CPU Processor Core
+      // Central Quantum CPU Core (Solid Green Circle with Border)
       const centerScale = fov / (fov + 180);
-      const coreRadius = 14 * centerScale;
-      const grad = ctx.createRadialGradient(cx, cy, 2, cx, cy, coreRadius * 2);
-      grad.addColorStop(0, "rgba(255, 255, 255, 0.95)");
-      grad.addColorStop(0.3, "rgba(0, 234, 100, 0.8)");
-      grad.addColorStop(1, "rgba(0, 234, 100, 0)");
-      ctx.fillStyle = grad;
+      const coreRadius = 8 * centerScale;
+      ctx.fillStyle = "#00EA64";
       ctx.beginPath();
-      ctx.arc(cx, cy, coreRadius * 2, 0, Math.PI * 2);
+      ctx.arc(cx, cy, coreRadius, 0, Math.PI * 2);
       ctx.fill();
+      ctx.strokeStyle = "#FFFFFF";
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
 
-      // Render 3D Floating Binary Tokens
-      ctx.font = "10px 'Manrope', monospace";
+      // Render 3D Floating Binary Tokens (Solid Green text)
+      ctx.font = "11px 'Manrope', monospace";
       ctx.textAlign = "center";
       particles.forEach((pt) => {
-        // Orbit particle around Y
         pt.z -= pt.speed;
-        if (pt.z < -150) pt.z = 150;
+        if (pt.z < -140) pt.z = 140;
 
         let px1 = pt.x * cosY + pt.z * sinY;
         let pz1 = -pt.x * sinY + pt.z * cosY;
@@ -207,28 +190,28 @@ export function CS3DCore() {
   }, []);
 
   return (
-    <div className="relative w-full h-[320px] sm:h-[360px] rounded-3xl bg-black/60 border border-[#00EA64]/20 p-4 overflow-hidden backdrop-blur-md shadow-[0_0_35px_rgba(0,234,100,0.12)] group">
+    <div className="relative w-full h-[280px] sm:h-[320px] md:h-[350px] rounded-2xl bg-[#0B140E] border border-[#00EA64]/30 p-3 overflow-hidden">
       {/* 3D Canvas */}
       <canvas
         ref={canvasRef}
         className="w-full h-full cursor-grab active:cursor-grabbing block"
       />
 
-      {/* Top Left Status Badge */}
-      <div className="absolute top-4 left-4 flex items-center gap-2 px-3 py-1 rounded-full bg-[#0E141E]/80 border border-[#00EA64]/30 text-[#00EA64] text-[10px] font-mono tracking-wider">
-        <span className="w-1.5 h-1.5 rounded-full bg-[#00EA64] animate-ping" />
+      {/* Top Left Badge */}
+      <div className="absolute top-3 left-3 flex items-center gap-2 px-2.5 py-1 rounded-md bg-black border border-[#00EA64]/40 text-[#00EA64] text-[10px] font-mono tracking-wider font-bold">
+        <span className="w-1.5 h-1.5 rounded-full bg-[#00EA64]" />
         <span>3D CS COMPUTING ENGINE</span>
       </div>
 
       {/* Bottom Telemetry HUD */}
-      <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-[10px] font-mono text-zinc-400 bg-black/75 px-3 py-1.5 rounded-xl border border-white/5">
-        <div className="flex items-center gap-1.5 text-[#00EA64]">
-          <Cpu className="w-3 h-3 text-[#00EA64]" />
+      <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-[10px] font-mono text-[#A7F3D0] bg-black/90 px-3 py-1.5 rounded-lg border border-[#00EA64]/20">
+        <div className="flex items-center gap-1.5 text-[#00EA64] font-semibold">
+          <Cpu className="w-3.5 h-3.5 text-[#00EA64]" />
           <span>ALGORITHMIC MATRIX</span>
         </div>
-        <div className="hidden sm:flex items-center gap-3">
-          <span>INTERACTIVE GYRO 3D</span>
-          <span className="text-white">60 FPS</span>
+        <div className="flex items-center gap-3">
+          <span>GYRO 3D</span>
+          <span className="text-[#00EA64] font-bold">60 FPS</span>
         </div>
       </div>
     </div>

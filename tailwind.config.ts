@@ -10,46 +10,38 @@ const config: Config = {
     extend: {
       colors: {
         bg: {
-          main: "#080B0E",
-          secondary: "#0D1217",
-          elevated: "#131922",
-          card: "#16202C",
-          cardHover: "#1C2938",
+          main: "#000000",
+          secondary: "#080F0B",
+          elevated: "#0E1812",
+          card: "#122018",
+          cardHover: "#172A20",
         },
         brand: {
           green: "#00EA64",
-          greenBright: "#1ED760",
-          spotify: "#1DB954",
-          greenDim: "rgba(0, 234, 100, 0.15)",
-          white: "#FFFFFF",
-          muted: "#94A3B8",
+          greenHover: "#10E56A",
+          greenDark: "#062B16",
+          greenMuted: "#0F3820",
+          black: "#000000",
         },
         text: {
           primary: "#FFFFFF",
-          secondary: "#94A3B8",
-          muted: "#64748B",
+          secondary: "#A7F3D0",
           accent: "#00EA64",
+          muted: "#4ADE80",
+          dark: "#000000",
         },
         border: {
-          subtle: "rgba(0, 234, 100, 0.14)",
-          focus: "rgba(0, 234, 100, 0.45)",
+          subtle: "rgba(0, 234, 100, 0.2)",
           active: "#00EA64",
         },
       },
       fontFamily: {
         sans: ["Manrope", "system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"],
       },
-      backgroundImage: {
-        "radial-green": "radial-gradient(circle at 50% 0%, rgba(0, 234, 100, 0.12) 0%, rgba(30, 215, 96, 0.04) 45%, transparent 70%)",
-        "card-sheen": "linear-gradient(135deg, rgba(0, 234, 100, 0.08) 0%, rgba(255, 255, 255, 0.01) 100%)",
-      },
       boxShadow: {
-        'green-glow': '0 0 30px -5px rgba(0, 234, 100, 0.35)',
-        'green-btn': '0 0 25px -4px rgba(0, 234, 100, 0.45)',
-        'card-glow': '0 10px 30px -10px rgba(0, 0, 0, 0.8), 0 0 1px 1px rgba(0, 234, 100, 0.14)',
-      },
-      animation: {
-        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        // Clean crisp flat borders and standard elevation only - NO fuzzy glowing effects
+        'flat-card': '0 4px 12px rgba(0, 0, 0, 0.95)',
+        'btn': '0 2px 4px rgba(0, 0, 0, 0.8)',
       },
     },
   },

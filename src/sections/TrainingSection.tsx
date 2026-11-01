@@ -9,7 +9,7 @@ export function TrainingSection() {
   const icons = [Shield, Box, Code, Laptop];
 
   return (
-    <section id="training" className="py-20 lg:py-28 relative bg-[#080B0E] border-t border-[#00EA64]/20">
+    <section id="training" className="py-20 lg:py-28 relative bg-black border-t border-[#00EA64]/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           badge="SPECIALIZED VOCATIONAL SKILLS"
@@ -25,14 +25,14 @@ export function TrainingSection() {
             return (
               <div
                 key={item.id}
-                className="p-6 sm:p-7 rounded-3xl bg-[#16202C] border border-[#00EA64]/20 hover:border-[#00EA64]/60 transition-all duration-300 flex flex-col justify-between group shadow-sm hover:shadow-[0_0_20px_rgba(0,234,100,0.15)]"
+                className="p-6 sm:p-7 rounded-3xl bg-[#0B150F] border border-[#00EA64]/25 hover:border-[#00EA64] transition-all duration-200 flex flex-col justify-between group"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <div className="w-10 h-10 rounded-xl bg-[#00EA64]/15 border border-[#00EA64]/30 text-[#00EA64] flex items-center justify-center group-hover:scale-105 transition-transform font-bold">
+                    <div className="w-10 h-10 rounded-xl bg-[#00EA64]/15 border border-[#00EA64]/40 text-[#00EA64] flex items-center justify-center font-bold">
                       <Icon className="w-5 h-5" />
                     </div>
-                    <span className="text-[10px] font-mono text-[#00EA64] uppercase tracking-wider px-2 py-0.5 rounded bg-[#080B0E] border border-[#00EA64]/20 font-bold">
+                    <span className="text-[10px] font-mono text-[#00EA64] uppercase tracking-wider px-2 py-0.5 rounded bg-black border border-[#00EA64]/30 font-bold">
                       Completed
                     </span>
                   </div>
@@ -46,16 +46,16 @@ export function TrainingSection() {
                     <span>{item.institution}</span>
                   </div>
 
-                  <p className="text-xs sm:text-sm text-slate-300 mt-3 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-[#A7F3D0] mt-3 leading-relaxed">
                     {item.focus}
                   </p>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-white/10 flex flex-wrap gap-2">
+                <div className="mt-6 pt-4 border-t border-[#00EA64]/20 flex flex-wrap gap-2">
                   {item.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-[11px] font-mono px-2.5 py-1 rounded-md bg-[#080B0E] text-slate-300 border border-[#00EA64]/15"
+                      className="text-[11px] font-mono px-2.5 py-1 rounded-md bg-black text-white border border-[#00EA64]/20"
                     >
                       #{tag}
                     </span>

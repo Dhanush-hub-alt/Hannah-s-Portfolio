@@ -7,7 +7,7 @@ import { GraduationCap, Calendar, MapPin, CheckCircle2 } from "lucide-react";
 
 export function EducationSection() {
   return (
-    <section id="education" className="py-20 lg:py-28 relative bg-[#080B0E] border-t border-[#00EA64]/20">
+    <section id="education" className="py-20 lg:py-28 relative bg-black border-t border-[#00EA64]/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           badge="FORMAL ACADEMICS"
@@ -18,8 +18,8 @@ export function EducationSection() {
 
         {/* Timeline Container */}
         <div className="relative max-w-3xl mx-auto mt-12">
-          {/* Vertical Connecting Line with Green Gradient */}
-          <div className="absolute top-4 bottom-4 left-4 sm:left-1/2 -translate-x-1/2 w-[2px] bg-gradient-to-b from-[#00EA64] via-[#1ED760]/50 to-[#00EA64]/10 pointer-events-none" />
+          {/* Vertical Connecting Line (Solid Green - NO GLOW) */}
+          <div className="absolute top-4 bottom-4 left-4 sm:left-1/2 -translate-x-1/2 w-[2px] bg-[#00EA64] pointer-events-none" />
 
           <div className="space-y-12">
             {educationList.map((edu, index) => {
@@ -31,7 +31,7 @@ export function EducationSection() {
                   className="relative flex flex-col sm:flex-row items-start"
                 >
                   {/* Timeline Central Dot */}
-                  <div className="absolute left-4 sm:left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-[#080B0E] border-2 border-[#00EA64] flex items-center justify-center text-[#00EA64] z-10 shadow-[0_0_15px_rgba(0,234,100,0.5)]">
+                  <div className="absolute left-4 sm:left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-black border-2 border-[#00EA64] flex items-center justify-center text-[#00EA64] z-10">
                     <GraduationCap className="w-4 h-4" />
                   </div>
 
@@ -41,7 +41,7 @@ export function EducationSection() {
                       isEven ? "sm:pr-10 sm:text-right" : "sm:pl-10 sm:ml-auto sm:text-left"
                     }`}
                   >
-                    <div className="p-6 rounded-2xl bg-[#16202C] border border-[#00EA64]/20 hover:border-[#00EA64]/50 transition-all duration-300 shadow-sm hover:shadow-[0_0_20px_rgba(0,234,100,0.15)]">
+                    <div className="p-6 rounded-2xl bg-[#0B150F] border border-[#00EA64]/25 hover:border-[#00EA64] transition-all duration-200">
                       {/* Status / Duration Pill */}
                       <div
                         className={`flex items-center gap-2 mb-2 ${
@@ -49,11 +49,11 @@ export function EducationSection() {
                         }`}
                       >
                         {edu.isCurrent && (
-                          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold bg-[#00EA64] text-[#080B0E]">
+                          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold bg-[#00EA64] text-black">
                             Current Degree
                           </span>
                         )}
-                        <span className="inline-flex items-center gap-1.5 text-xs font-mono font-medium text-[#00EA64]">
+                        <span className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-[#00EA64]">
                           <Calendar className="w-3.5 h-3.5" />
                           {edu.period}
                         </span>
@@ -71,7 +71,7 @@ export function EducationSection() {
 
                       {/* Location */}
                       <div
-                        className={`flex items-center gap-1.5 text-xs text-slate-400 mt-2 ${
+                        className={`flex items-center gap-1.5 text-xs text-[#A7F3D0] mt-2 ${
                           isEven ? "sm:justify-end" : "sm:justify-start"
                         }`}
                       >
@@ -80,7 +80,7 @@ export function EducationSection() {
                       </div>
 
                       {/* Highlights */}
-                      <div className="mt-4 pt-3 border-t border-white/10 text-xs text-slate-300 space-y-1.5">
+                      <div className="mt-4 pt-3 border-t border-[#00EA64]/20 text-xs text-white/90 space-y-1.5">
                         {edu.highlights.map((h, i) => (
                           <div
                             key={i}

@@ -7,7 +7,7 @@ import { Languages, Check } from "lucide-react";
 
 export function LanguagesSection() {
   return (
-    <section id="languages" className="py-20 lg:py-24 relative bg-[#080B0E] border-t border-[#00EA64]/20">
+    <section id="languages" className="py-20 lg:py-24 relative bg-black border-t border-[#00EA64]/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           badge="MULTILINGUAL PROFICIENCY"
@@ -20,14 +20,14 @@ export function LanguagesSection() {
           {languages.map((item) => (
             <div
               key={item.language}
-              className="p-6 rounded-2xl bg-[#16202C] border border-[#00EA64]/20 hover:border-[#00EA64]/60 transition-all duration-300 flex flex-col justify-between shadow-sm"
+              className="p-6 rounded-2xl bg-[#0B150F] border border-[#00EA64]/25 hover:border-[#00EA64] transition-all duration-200 flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-3">
                   <div className="w-8 h-8 rounded-lg bg-[#00EA64]/15 text-[#00EA64] flex items-center justify-center font-bold">
                     <Languages className="w-4 h-4" />
                   </div>
-                  <span className="text-[10px] font-mono uppercase tracking-wider text-[#080B0E] bg-[#00EA64] font-bold px-2 py-0.5 rounded shadow-sm">
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-black bg-[#00EA64] font-extrabold px-2 py-0.5 rounded">
                     {item.proficiency}
                   </span>
                 </div>
@@ -37,9 +37,9 @@ export function LanguagesSection() {
                 </h3>
               </div>
 
-              <div className="mt-5 pt-3 border-t border-white/10 flex items-center justify-between text-xs text-slate-400">
-                <span className="font-medium text-slate-300">Fluency Level</span>
-                <span className="font-semibold text-[#00EA64] flex items-center gap-1">
+              <div className="mt-5 pt-3 border-t border-[#00EA64]/20 flex items-center justify-between text-xs text-[#A7F3D0]">
+                <span className="font-medium text-white/90">Fluency Level</span>
+                <span className="font-bold text-[#00EA64] flex items-center gap-1">
                   <Check className="w-3.5 h-3.5 text-[#00EA64]" />
                   {item.proficiency}
                 </span>

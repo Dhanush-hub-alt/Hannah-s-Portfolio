@@ -52,24 +52,24 @@ export function WaterPurificationDiagram() {
   const currentStageData = stages.find((s) => s.id === activeStage) || stages[0];
 
   return (
-    <div className="w-full rounded-2xl bg-zinc-950 border border-white/10 p-5 md:p-6 backdrop-blur-sm">
+    <div className="w-full rounded-2xl bg-[#09140D] border border-[#00EA64]/30 p-4 sm:p-6">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-white/10">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-[#00EA64]/20">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-white/10 text-white flex items-center justify-center">
+          <div className="w-9 h-9 rounded-xl bg-[#00EA64]/15 text-[#00EA64] flex items-center justify-center font-bold">
             <Droplet className="w-5 h-5" />
           </div>
           <div>
-            <span className="text-[10px] font-mono tracking-wider uppercase text-zinc-400">
-              Scientific Investigation & Modeling
+            <span className="text-[10px] font-mono tracking-wider uppercase text-[#00EA64] font-bold">
+              Scientific Investigation &amp; Modeling
             </span>
             <h4 className="text-base sm:text-lg font-bold text-white">
-              Ozonolysis Reaction Mechanics & Pollutant Cleavage
+              Ozonolysis Reaction Mechanics &amp; Pollutant Cleavage
             </h4>
           </div>
         </div>
 
-        <div className="text-xs text-white font-mono px-2.5 py-1 rounded-lg bg-zinc-900 border border-white/15 flex items-center gap-1.5">
+        <div className="text-xs text-[#00EA64] font-mono px-3 py-1.5 rounded-lg bg-black border border-[#00EA64]/30 flex items-center gap-1.5 font-bold">
           <Binary className="w-3.5 h-3.5" />
           <span>Python + MATLAB Kinematics</span>
         </div>
@@ -86,27 +86,27 @@ export function WaterPurificationDiagram() {
               onClick={() => setActiveStage(stage.id)}
               className={`p-3 rounded-xl border text-left transition-all ${
                 isActive
-                  ? "bg-white text-black border-white shadow-lg font-bold"
-                  : "bg-zinc-900 border-white/10 text-zinc-400 hover:text-white hover:border-white/20"
+                  ? "bg-[#00EA64] text-black border-[#00EA64] font-bold"
+                  : "bg-black border-[#00EA64]/20 text-[#A7F3D0] hover:text-white hover:border-[#00EA64]"
               }`}
             >
               <div className="flex items-center justify-between mb-1.5">
                 <span
                   className={`text-[10px] font-mono uppercase ${
-                    isActive ? "text-black font-extrabold" : "text-zinc-500"
+                    isActive ? "text-black font-extrabold" : "text-[#00EA64]"
                   }`}
                 >
                   {stage.badge}
                 </span>
                 <Icon
                   className={`w-4 h-4 ${
-                    isActive ? "text-black" : "text-zinc-400"
+                    isActive ? "text-black" : "text-[#00EA64]"
                   }`}
                 />
               </div>
               <div
                 className={`text-xs leading-tight ${
-                  isActive ? "text-black font-extrabold" : "text-zinc-300 font-semibold"
+                  isActive ? "text-black font-extrabold" : "text-white font-semibold"
                 }`}
               >
                 {stage.title}
@@ -117,41 +117,41 @@ export function WaterPurificationDiagram() {
       </div>
 
       {/* Active Stage Deep Dive */}
-      <div className="p-4 rounded-xl bg-zinc-900 border border-white/10 grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="p-4 rounded-xl bg-black border border-[#00EA64]/25 grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
-          <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-400">
+          <span className="text-[10px] font-mono uppercase tracking-wider text-[#00EA64] font-bold">
             Reaction Mechanism
           </span>
           <h5 className="text-sm font-bold text-white mt-1">
             {currentStageData.highlight}
           </h5>
-          <p className="text-xs text-zinc-400 mt-2 leading-relaxed">
+          <p className="text-xs text-[#A7F3D0] mt-2 leading-relaxed">
             {currentStageData.description}
           </p>
         </div>
 
-        <div className="rounded-lg bg-black p-3.5 border border-white/10 flex flex-col justify-between">
+        <div className="rounded-lg bg-[#0E1812] p-3.5 border border-[#00EA64]/20 flex flex-col justify-between">
           <div>
-            <div className="flex items-center gap-1.5 text-white text-xs font-semibold">
+            <div className="flex items-center gap-1.5 text-[#00EA64] text-xs font-bold">
               <Activity className="w-3.5 h-3.5" />
-              Computational & Lab Modeling Focus
+              Computational &amp; Lab Modeling Focus
             </div>
-            <p className="text-xs text-zinc-400 mt-2 leading-relaxed">
+            <p className="text-xs text-white/90 mt-2 leading-relaxed">
               {currentStageData.computationalNote}
             </p>
           </div>
-          <div className="mt-3 pt-2 border-t border-white/10 flex items-center justify-between text-[11px] text-zinc-500 font-mono">
+          <div className="mt-3 pt-2 border-t border-[#00EA64]/20 flex items-center justify-between text-[11px] text-[#A7F3D0] font-mono">
             <span>Tools: Python | MATLAB</span>
-            <span className="text-white">Validated Methodology</span>
+            <span className="text-[#00EA64] font-bold">Validated Methodology</span>
           </div>
         </div>
       </div>
 
       {/* Scientific Summary */}
-      <div className="mt-4 pt-3 border-t border-white/10 flex flex-wrap items-center justify-between text-[11px] text-zinc-500 gap-2">
+      <div className="mt-4 pt-3 border-t border-[#00EA64]/20 flex flex-wrap items-center justify-between text-[11px] text-[#A7F3D0] gap-2">
         <span>Focus: Advanced Oxidation for Persistent Organic Contaminants</span>
-        <span className="text-zinc-300 font-medium">
-          Research Study & Laboratory Investigation
+        <span className="text-[#00EA64] font-bold">
+          Research Study &amp; Laboratory Investigation
         </span>
       </div>
     </div>

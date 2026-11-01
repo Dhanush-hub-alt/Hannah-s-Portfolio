@@ -11,7 +11,7 @@ export function FooterSection() {
   };
 
   return (
-    <footer className="relative bg-[#080B0E] border-t border-[#00EA64]/20 pt-16 pb-12">
+    <footer className="relative bg-[#000000] border-t border-[#00EA64]/20 pt-16 pb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main Footer Row */}
@@ -64,7 +64,7 @@ export function FooterSection() {
                   href={personalInfo.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-xl bg-[#16202C] border border-[#00EA64]/20 flex items-center justify-center text-slate-300 hover:text-[#00EA64] hover:border-[#00EA64] transition-colors"
+                  className="w-9 h-9 rounded-xl bg-[#080F0B] border border-[#00EA64]/20 flex items-center justify-center text-slate-300 hover:text-[#00EA64] hover:border-[#00EA64] transition-colors"
                   aria-label="LinkedIn"
                 >
                   <Linkedin className="w-4 h-4" />
@@ -73,21 +73,21 @@ export function FooterSection() {
                   href={personalInfo.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-xl bg-[#16202C] border border-[#00EA64]/20 flex items-center justify-center text-slate-300 hover:text-[#00EA64] hover:border-[#00EA64] transition-colors"
+                  className="w-9 h-9 rounded-xl bg-[#080F0B] border border-[#00EA64]/20 flex items-center justify-center text-slate-300 hover:text-[#00EA64] hover:border-[#00EA64] transition-colors"
                   aria-label="GitHub"
                 >
                   <Github className="w-4 h-4" />
                 </a>
                 <a
                   href={`mailto:${personalInfo.email}`}
-                  className="w-9 h-9 rounded-xl bg-[#16202C] border border-[#00EA64]/20 flex items-center justify-center text-slate-300 hover:text-[#00EA64] hover:border-[#00EA64] transition-colors"
+                  className="w-9 h-9 rounded-xl bg-[#080F0B] border border-[#00EA64]/20 flex items-center justify-center text-slate-300 hover:text-[#00EA64] hover:border-[#00EA64] transition-colors"
                   aria-label="Email"
                 >
                   <Mail className="w-4 h-4" />
                 </a>
                 <a
                   href={`tel:${personalInfo.phone.replace(/\s+/g, "")}`}
-                  className="w-9 h-9 rounded-xl bg-[#16202C] border border-[#00EA64]/20 flex items-center justify-center text-slate-300 hover:text-[#00EA64] hover:border-[#00EA64] transition-colors"
+                  className="w-9 h-9 rounded-xl bg-[#080F0B] border border-[#00EA64]/20 flex items-center justify-center text-slate-300 hover:text-[#00EA64] hover:border-[#00EA64] transition-colors"
                   aria-label="Phone"
                 >
                   <Phone className="w-4 h-4" />
@@ -98,7 +98,7 @@ export function FooterSection() {
             <div>
               <button
                 onClick={scrollToTop}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#16202C] border border-[#00EA64]/30 text-xs font-semibold text-slate-300 hover:text-[#00EA64] hover:border-[#00EA64] transition-all group"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#080F0B] border border-[#00EA64]/30 text-xs font-semibold text-slate-300 hover:text-[#00EA64] hover:border-[#00EA64] transition-all group"
               >
                 <span>Back to Top</span>
                 <ArrowUp className="w-3.5 h-3.5 text-[#00EA64] group-hover:-translate-y-0.5 transition-transform" />
@@ -114,7 +114,7 @@ export function FooterSection() {
             &copy; {new Date().getFullYear()} Hannah K. All rights reserved.
           </p>
           <p className="flex items-center gap-1">
-            Engineered with Next.js, TypeScript &amp; Spotify/HackerRank Theme
+            Engineered with Next.js, TypeScript &amp; HackerRank/Spotify Green Theme
           </p>
         </div>
 
