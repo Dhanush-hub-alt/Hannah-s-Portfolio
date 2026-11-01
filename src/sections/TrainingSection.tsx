@@ -9,11 +9,11 @@ export function TrainingSection() {
   const icons = [Shield, Box, Code, Laptop];
 
   return (
-    <section id="training" className="py-20 lg:py-28 relative bg-zinc-950 border-t border-white/10">
+    <section id="training" className="py-20 lg:py-28 relative bg-[#080B0E] border-t border-[#00EA64]/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           badge="SPECIALIZED VOCATIONAL SKILLS"
-          title="Training &"
+          title="Training &amp;"
           highlight="Workshops"
           description="Intensive hands-on technical bootcamps and specialized institutional training programs."
         />
@@ -25,28 +25,28 @@ export function TrainingSection() {
             return (
               <div
                 key={item.id}
-                className="p-6 sm:p-7 rounded-3xl bg-zinc-900 border border-white/10 hover:border-white/30 transition-all duration-300 flex flex-col justify-between group shadow-sm"
+                className="p-6 sm:p-7 rounded-3xl bg-[#16202C] border border-[#00EA64]/20 hover:border-[#00EA64]/60 transition-all duration-300 flex flex-col justify-between group shadow-sm hover:shadow-[0_0_20px_rgba(0,234,100,0.15)]"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <div className="w-10 h-10 rounded-xl bg-white/10 border border-white/15 text-white flex items-center justify-center group-hover:scale-105 transition-transform">
+                    <div className="w-10 h-10 rounded-xl bg-[#00EA64]/15 border border-[#00EA64]/30 text-[#00EA64] flex items-center justify-center group-hover:scale-105 transition-transform font-bold">
                       <Icon className="w-5 h-5" />
                     </div>
-                    <span className="text-[10px] font-mono text-zinc-400 uppercase tracking-wider px-2 py-0.5 rounded bg-black border border-white/10">
+                    <span className="text-[10px] font-mono text-[#00EA64] uppercase tracking-wider px-2 py-0.5 rounded bg-[#080B0E] border border-[#00EA64]/20 font-bold">
                       Completed
                     </span>
                   </div>
 
-                  <h3 className="text-lg font-bold text-white group-hover:text-zinc-200 transition-colors">
+                  <h3 className="text-lg font-bold text-white group-hover:text-[#00EA64] transition-colors">
                     {item.title}
                   </h3>
 
-                  <div className="flex items-center gap-2 mt-2 text-xs font-semibold text-zinc-300">
-                    <Building2 className="w-3.5 h-3.5 shrink-0 text-white" />
+                  <div className="flex items-center gap-2 mt-2 text-xs font-semibold text-[#00EA64]">
+                    <Building2 className="w-3.5 h-3.5 shrink-0" />
                     <span>{item.institution}</span>
                   </div>
 
-                  <p className="text-xs sm:text-sm text-zinc-400 mt-3 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate-300 mt-3 leading-relaxed">
                     {item.focus}
                   </p>
                 </div>
@@ -55,7 +55,7 @@ export function TrainingSection() {
                   {item.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-[11px] font-mono px-2.5 py-1 rounded-md bg-black text-zinc-400 border border-white/5"
+                      className="text-[11px] font-mono px-2.5 py-1 rounded-md bg-[#080B0E] text-slate-300 border border-[#00EA64]/15"
                     >
                       #{tag}
                     </span>

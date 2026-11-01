@@ -15,23 +15,23 @@ import { FooterSection } from "@/sections/FooterSection";
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen bg-black text-white selection:bg-white selection:text-black">
-      {/* Scroll Reading Progress Bar at the top */}
+    <main className="relative min-h-screen bg-[#080B0E] text-white selection:bg-[#00EA64] selection:text-[#080B0E]">
+      {/* Scroll Reading Progress Bar in Spotify/HackerRank Green */}
       <ScrollProgressBar />
 
       {/* Sticky Premium Navigation with modern 'H' brand logo */}
       <Navbar />
 
-      {/* Section 01: Immersive Hero Section with circular white-bg photo (no text overlay) */}
+      {/* Section 01: Hero with new circular white-bg photo & 3D Computer Science Interactive Core */}
       <HeroSection />
 
-      {/* Section 02: About Me */}
+      {/* Section 02: About Me with Computer Engineering Imagery (Exploded hardware, AI robotic hand, orchestration) */}
       <AboutSection />
 
       {/* Section 03: Technical Skills & Expertise */}
       <SkillsSection />
 
-      {/* Section 04: Selected Projects Showcase with Related Visual Images */}
+      {/* Section 04: Selected Projects Showcase with Related Visual Images & Interactive Pipeline */}
       <ProjectsSection />
 
       {/* Section 05: Academic Journey / Education */}

@@ -35,7 +35,7 @@ export function Navbar() {
       <header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
           isScrolled
-            ? "py-3 bg-black/85 backdrop-blur-xl border-b border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.8)]"
+            ? "py-3 bg-[#080B0E]/90 backdrop-blur-xl border-b border-[#00EA64]/20 shadow-[0_10px_30px_rgba(0,0,0,0.85)]"
             : "py-5 bg-transparent"
         }`}
       >
@@ -46,19 +46,19 @@ export function Navbar() {
             className="flex items-center gap-3 group focus:outline-none"
             aria-label="Hannah K Home"
           >
-            <BrandLogo size={38} />
+            <BrandLogo size={40} />
             <div className="flex flex-col">
-              <span className="font-bold text-sm text-white tracking-tight group-hover:text-zinc-200 transition-colors">
+              <span className="font-bold text-sm text-white tracking-tight group-hover:text-[#00EA64] transition-colors">
                 {personalInfo.name}
               </span>
-              <span className="text-[10px] font-mono text-zinc-500">
+              <span className="text-[10px] font-mono text-[#00EA64]">
                 B.E CSE • 2027
               </span>
             </div>
           </a>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden xl:flex items-center gap-1 bg-zinc-950/80 border border-white/10 rounded-full px-4 py-1.5 backdrop-blur-md">
+          <nav className="hidden xl:flex items-center gap-1 bg-[#0D1217]/85 border border-[#00EA64]/20 rounded-full px-4 py-1.5 backdrop-blur-md">
             {navLinks.map((link) => {
               const isActive = activeSection === link.href.replace("#", "");
               return (
@@ -67,8 +67,8 @@ export function Navbar() {
                   href={link.href}
                   className={`px-3 py-1.5 text-xs font-semibold rounded-full transition-all duration-200 relative ${
                     isActive
-                      ? "text-black bg-white shadow-sm"
-                      : "text-zinc-400 hover:text-white hover:bg-white/[0.06]"
+                      ? "text-[#080B0E] bg-[#00EA64] shadow-[0_0_15px_rgba(0,234,100,0.4)] font-bold"
+                      : "text-slate-300 hover:text-[#00EA64] hover:bg-white/[0.04]"
                   }`}
                 >
                   {link.name}
@@ -81,21 +81,21 @@ export function Navbar() {
           <div className="flex items-center gap-3">
             <a
               href="#contact"
-              className="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold text-black bg-white hover:bg-zinc-200 transition-all active:scale-95 shadow-[0_0_20px_rgba(255,255,255,0.15)]"
+              className="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold text-[#080B0E] bg-[#00EA64] hover:bg-[#1ED760] transition-all active:scale-95 shadow-green-btn"
             >
-              <MessageSquare className="w-3.5 h-3.5 text-black" />
+              <MessageSquare className="w-3.5 h-3.5 text-[#080B0E]" />
               <span>Let&apos;s Talk</span>
-              <ArrowUpRight className="w-3.5 h-3.5 text-zinc-600 group-hover:text-black" />
+              <ArrowUpRight className="w-3.5 h-3.5 text-[#080B0E]/80 group-hover:text-[#080B0E]" />
             </a>
 
             {/* Mobile Hamburger Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="xl:hidden p-2.5 rounded-xl bg-zinc-900 border border-white/10 text-zinc-300 hover:text-white focus:outline-none"
+              className="xl:hidden p-2.5 rounded-xl bg-[#0D1217] border border-[#00EA64]/20 text-slate-300 hover:text-[#00EA64] focus:outline-none"
               aria-label="Toggle Navigation Menu"
             >
               {mobileMenuOpen ? (
-                <X className="w-5 h-5 text-white" />
+                <X className="w-5 h-5 text-[#00EA64]" />
               ) : (
                 <Menu className="w-5 h-5" />
               )}
@@ -108,13 +108,13 @@ export function Navbar() {
       {mobileMenuOpen && (
         <div className="fixed inset-0 z-30 xl:hidden">
           <div
-            className="fixed inset-0 bg-black/80 backdrop-blur-md"
+            className="fixed inset-0 bg-[#080B0E]/85 backdrop-blur-md"
             onClick={() => setMobileMenuOpen(false)}
           />
 
-          <div className="fixed top-20 right-4 left-4 max-h-[calc(100vh-6rem)] overflow-y-auto rounded-3xl bg-zinc-950 border border-white/15 p-6 shadow-2xl flex flex-col justify-between">
+          <div className="fixed top-20 right-4 left-4 max-h-[calc(100vh-6rem)] overflow-y-auto rounded-3xl bg-[#0D1217] border border-[#00EA64]/30 p-6 shadow-2xl flex flex-col justify-between">
             <div className="flex flex-col space-y-1">
-              <div className="text-xs font-mono uppercase tracking-wider text-zinc-500 px-3 py-2">
+              <div className="text-xs font-mono uppercase tracking-wider text-[#00EA64] px-3 py-2 font-bold">
                 Navigation
               </div>
               {navLinks.map((link) => {
@@ -126,8 +126,8 @@ export function Navbar() {
                     onClick={() => setMobileMenuOpen(false)}
                     className={`px-4 py-3 rounded-xl text-sm font-semibold flex items-center justify-between transition-all ${
                       isActive
-                        ? "bg-white text-black font-bold"
-                        : "text-zinc-400 hover:text-white hover:bg-white/5"
+                        ? "bg-[#00EA64] text-[#080B0E] font-bold"
+                        : "text-slate-300 hover:text-white hover:bg-white/5"
                     }`}
                   >
                     <span>{link.name}</span>
@@ -137,11 +137,11 @@ export function Navbar() {
               })}
             </div>
 
-            <div className="mt-6 pt-5 border-t border-white/10">
+            <div className="mt-6 pt-5 border-t border-[#00EA64]/20">
               <a
                 href="#contact"
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-full py-3 rounded-xl text-sm font-bold text-center text-black bg-white flex items-center justify-center gap-2"
+                className="w-full py-3 rounded-xl text-sm font-bold text-center text-[#080B0E] bg-[#00EA64] hover:bg-[#1ED760] flex items-center justify-center gap-2 shadow-green-btn"
               >
                 <MessageSquare className="w-4 h-4" />
                 <span>Let&apos;s Connect</span>

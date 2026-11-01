@@ -14,11 +14,11 @@ export function AchievementsSection() {
   };
 
   return (
-    <section id="achievements" className="py-20 lg:py-28 relative bg-black border-t border-white/10">
+    <section id="achievements" className="py-20 lg:py-28 relative bg-[#0D1217] border-t border-[#00EA64]/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
-          badge="HONORS & RECOGNITION"
-          title="Honors &"
+          badge="HONORS &amp; RECOGNITION"
+          title="Honors &amp;"
           highlight="Achievements"
           description="Institutional commendations, project innovation victories, research paper honors, and cultural achievements."
         />
@@ -33,8 +33,8 @@ export function AchievementsSection() {
                 key={award.id}
                 className={`p-6 rounded-3xl border transition-all duration-300 flex flex-col justify-between group ${
                   isBestPerformer
-                    ? "bg-zinc-900 border-white/40 shadow-[0_10px_30px_rgba(255,255,255,0.06)]"
-                    : "bg-zinc-950 border-white/10 hover:border-white/30"
+                    ? "bg-[#16202C] border-[#00EA64] shadow-[0_0_25px_rgba(0,234,100,0.25)]"
+                    : "bg-[#16202C] border-[#00EA64]/20 hover:border-[#00EA64]/50"
                 }`}
               >
                 <div>
@@ -42,38 +42,38 @@ export function AchievementsSection() {
                     <div
                       className={`w-11 h-11 rounded-2xl flex items-center justify-center transition-transform group-hover:scale-105 ${
                         isBestPerformer
-                          ? "bg-white text-black"
-                          : "bg-white/10 text-white border border-white/10"
+                          ? "bg-[#00EA64] text-[#080B0E] font-bold shadow-green-btn"
+                          : "bg-[#00EA64]/15 text-[#00EA64] border border-[#00EA64]/30"
                       }`}
                     >
                       <Icon className="w-5 h-5" />
                     </div>
                     {award.year ? (
-                      <span className="text-xs font-mono font-bold px-2.5 py-0.5 rounded-full bg-white/10 text-white border border-white/20">
+                      <span className="text-xs font-mono font-bold px-2.5 py-0.5 rounded-full bg-[#00EA64]/15 text-[#00EA64] border border-[#00EA64]/30">
                         {award.year}
                       </span>
                     ) : (
-                      <span className="text-[10px] font-mono uppercase text-zinc-500 px-2 py-0.5 rounded bg-zinc-900 border border-white/5">
+                      <span className="text-[10px] font-mono uppercase text-[#00EA64] px-2 py-0.5 rounded bg-[#080B0E] border border-[#00EA64]/20">
                         Award
                       </span>
                     )}
                   </div>
 
-                  <span className="text-[10px] font-mono tracking-wider uppercase text-zinc-500">
+                  <span className="text-[10px] font-mono tracking-wider uppercase text-slate-400">
                     {award.category}
                   </span>
 
-                  <h3 className="text-lg font-extrabold text-white mt-1 group-hover:text-zinc-200 transition-colors">
+                  <h3 className="text-lg font-extrabold text-white mt-1 group-hover:text-[#00EA64] transition-colors">
                     {award.title}
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-zinc-400 mt-2.5 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate-300 mt-2.5 leading-relaxed">
                     {award.description}
                   </p>
                 </div>
 
-                <div className="mt-6 pt-3 border-t border-white/10 flex items-center gap-1.5 text-[11px] font-mono text-zinc-400">
-                  <Sparkles className="w-3.5 h-3.5 text-white" />
+                <div className="mt-6 pt-3 border-t border-white/10 flex items-center gap-1.5 text-[11px] font-mono text-[#00EA64]">
+                  <Sparkles className="w-3.5 h-3.5 text-[#00EA64]" />
                   <span>Resume Documented Honor</span>
                 </div>
               </div>
