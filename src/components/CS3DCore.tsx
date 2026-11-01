@@ -190,7 +190,7 @@ export function CS3DCore() {
   }, []);
 
   return (
-    <div className="relative w-full h-[280px] sm:h-[320px] md:h-[350px] rounded-2xl bg-[#0B140E] border border-[#00EA64]/30 p-3 overflow-hidden">
+    <div className="relative w-full h-[280px] sm:h-[320px] md:h-[350px] rounded-2xl bg-black border border-[#00EA64]/30 p-3 overflow-hidden">
       {/* 3D Canvas */}
       <canvas
         ref={canvasRef}
@@ -204,7 +204,7 @@ export function CS3DCore() {
       </div>
 
       {/* Bottom Telemetry HUD */}
-      <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-[10px] font-mono text-[#A7F3D0] bg-black/90 px-3 py-1.5 rounded-lg border border-[#00EA64]/20">
+      <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-[10px] font-mono text-[#A7F3D0] bg-black px-3 py-1.5 rounded-lg border border-[#00EA64]/20">
         <div className="flex items-center gap-1.5 text-[#00EA64] font-semibold">
           <Cpu className="w-3.5 h-3.5 text-[#00EA64]" />
           <span>ALGORITHMIC MATRIX</span>

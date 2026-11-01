@@ -9,7 +9,7 @@ export function ArchitectureDiagram() {
   const isFog = simulationMode === "fog";
 
   return (
-    <div className="w-full rounded-2xl bg-[#09140D] border border-[#00EA64]/30 p-4 sm:p-6">
+    <div className="w-full rounded-2xl bg-black border border-[#00EA64]/30 p-4 sm:p-6">
       {/* Header and Toggle Controls */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-[#00EA64]/20">
         <div>
@@ -53,7 +53,7 @@ export function ArchitectureDiagram() {
       <div
         className={`my-4 p-3 rounded-xl border text-xs sm:text-sm flex items-center justify-between transition-colors ${
           isFog
-            ? "bg-[#00EA64]/15 border-[#00EA64] text-white"
+            ? "bg-black border-[#00EA64] text-white"
             : "bg-black border-[#00EA64]/20 text-[#A7F3D0]"
         }`}
       >
@@ -79,7 +79,7 @@ export function ArchitectureDiagram() {
         {/* Step 1: Physical Perception */}
         <div className="rounded-xl bg-black border border-[#00EA64]/20 p-4 flex flex-col justify-between hover:border-[#00EA64] transition-all">
           <div>
-            <div className="w-8 h-8 rounded-lg bg-[#00EA64]/15 text-[#00EA64] flex items-center justify-center mb-3 font-bold">
+            <div className="w-8 h-8 rounded-lg bg-black border border-[#00EA64]/30 text-[#00EA64] flex items-center justify-center mb-3 font-bold">
               <Radio className="w-4 h-4" />
             </div>
             <span className="text-[10px] font-mono tracking-wider text-[#00EA64] uppercase font-bold">
@@ -100,7 +100,7 @@ export function ArchitectureDiagram() {
         {/* Step 2: Environmental Sensing */}
         <div className="rounded-xl bg-black border border-[#00EA64]/20 p-4 flex flex-col justify-between hover:border-[#00EA64] transition-all">
           <div>
-            <div className="w-8 h-8 rounded-lg bg-[#00EA64]/15 text-[#00EA64] flex items-center justify-center mb-3 font-bold">
+            <div className="w-8 h-8 rounded-lg bg-black border border-[#00EA64]/30 text-[#00EA64] flex items-center justify-center mb-3 font-bold">
               <CloudFog className="w-4 h-4" />
             </div>
             <span className="text-[10px] font-mono tracking-wider text-[#00EA64] uppercase font-bold">
@@ -121,7 +121,7 @@ export function ArchitectureDiagram() {
         {/* Step 3: Edge Fusion Engine */}
         <div className="rounded-xl bg-black border border-[#00EA64]/20 p-4 flex flex-col justify-between hover:border-[#00EA64] transition-all">
           <div>
-            <div className="w-8 h-8 rounded-lg bg-[#00EA64]/15 text-[#00EA64] flex items-center justify-center mb-3 font-bold">
+            <div className="w-8 h-8 rounded-lg bg-black border border-[#00EA64]/30 text-[#00EA64] flex items-center justify-center mb-3 font-bold">
               <Cpu className="w-4 h-4" />
             </div>
             <span className="text-[10px] font-mono tracking-wider text-[#00EA64] uppercase font-bold">
@@ -144,7 +144,7 @@ export function ArchitectureDiagram() {
         <div
           className={`rounded-xl border p-4 flex flex-col justify-between transition-all ${
             isFog
-              ? "bg-[#00EA64]/15 border-[#00EA64]"
+              ? "bg-black border-[#00EA64]"
               : "bg-black border-[#00EA64]/20"
           }`}
         >
@@ -153,7 +153,7 @@ export function ArchitectureDiagram() {
               className={`w-8 h-8 rounded-lg flex items-center justify-center mb-3 ${
                 isFog
                   ? "bg-[#00EA64] text-black font-bold"
-                  : "bg-[#09140D] text-[#00EA64]"
+                  : "bg-black border border-[#00EA64]/30 text-[#00EA64]"
               }`}
             >
               {isFog ? (

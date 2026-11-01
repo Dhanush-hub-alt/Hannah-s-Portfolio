@@ -74,7 +74,7 @@ export function ContactSection() {
           
           {/* Left Column: Direct Communication Channels (5 cols) */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="p-6 rounded-3xl bg-[#080F0B] border border-[#00EA64]/20 space-y-5">
+            <div className="p-6 rounded-3xl bg-black border border-[#00EA64]/20 space-y-5">
               <h3 className="text-lg font-bold text-white">
                 Direct Contact Channels
               </h3>
@@ -83,9 +83,9 @@ export function ContactSection() {
               </p>
 
               {/* Email Card */}
-              <div className="p-4 rounded-2xl bg-[#0E1812] border border-[#00EA64]/20 flex items-center justify-between">
+              <div className="p-4 rounded-2xl bg-black border border-[#00EA64]/20 flex items-center justify-between">
                 <div className="flex items-center gap-3 min-w-0">
-                  <div className="w-10 h-10 rounded-xl bg-[#00EA64]/15 text-[#00EA64] flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-xl bg-black border border-[#00EA64]/30 text-[#00EA64] flex items-center justify-center shrink-0">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div className="min-w-0">
@@ -100,7 +100,7 @@ export function ContactSection() {
                 </div>
                 <button
                   onClick={() => handleCopy(personalInfo.email, "email")}
-                  className="p-2 rounded-lg bg-[#122018] border border-[#00EA64]/20 text-slate-300 hover:text-[#00EA64] transition-colors"
+                  className="p-2 rounded-lg bg-black border border-[#00EA64]/20 text-slate-300 hover:text-[#00EA64] transition-colors"
                   title="Copy Email"
                 >
                   {copiedType === "email" ? (
@@ -112,9 +112,9 @@ export function ContactSection() {
               </div>
 
               {/* Phone Card */}
-              <div className="p-4 rounded-2xl bg-[#0E1812] border border-[#00EA64]/20 flex items-center justify-between">
+              <div className="p-4 rounded-2xl bg-black border border-[#00EA64]/20 flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-[#00EA64]/15 text-[#00EA64] flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-xl bg-black border border-[#00EA64]/30 text-[#00EA64] flex items-center justify-center shrink-0">
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
@@ -129,7 +129,7 @@ export function ContactSection() {
                 </div>
                 <button
                   onClick={() => handleCopy(personalInfo.phone, "phone")}
-                  className="p-2 rounded-lg bg-[#122018] border border-[#00EA64]/20 text-slate-300 hover:text-[#00EA64] transition-colors"
+                  className="p-2 rounded-lg bg-black border border-[#00EA64]/20 text-slate-300 hover:text-[#00EA64] transition-colors"
                   title="Copy Phone"
                 >
                   {copiedType === "phone" ? (
@@ -141,8 +141,8 @@ export function ContactSection() {
               </div>
 
               {/* Location Card */}
-              <div className="p-4 rounded-2xl bg-[#0E1812] border border-[#00EA64]/20 flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-[#00EA64]/15 text-[#00EA64] flex items-center justify-center shrink-0">
+              <div className="p-4 rounded-2xl bg-black border border-[#00EA64]/20 flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-black border border-[#00EA64]/30 text-[#00EA64] flex items-center justify-center shrink-0">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
@@ -155,7 +155,7 @@ export function ContactSection() {
             </div>
 
             {/* Social Links Box */}
-            <div className="p-5 rounded-3xl bg-[#080F0B] border border-[#00EA64]/20 flex items-center justify-between">
+            <div className="p-5 rounded-3xl bg-black border border-[#00EA64]/20 flex items-center justify-between">
               <span className="text-xs font-mono uppercase tracking-wider text-slate-400">
                 Professional Networks
               </span>
@@ -164,7 +164,7 @@ export function ContactSection() {
                   href={personalInfo.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-xl bg-[#0E1812] border border-[#00EA64]/20 text-slate-300 hover:text-[#00EA64] hover:border-[#00EA64] transition-all"
+                  className="p-2.5 rounded-xl bg-black border border-[#00EA64]/20 text-slate-300 hover:text-[#00EA64] hover:border-[#00EA64] transition-all"
                   aria-label="Hannah K LinkedIn"
                 >
                   <Linkedin className="w-4 h-4" />
@@ -173,7 +173,7 @@ export function ContactSection() {
                   href={personalInfo.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-xl bg-[#0E1812] border border-[#00EA64]/20 text-slate-300 hover:text-[#00EA64] hover:border-[#00EA64] transition-all"
+                  className="p-2.5 rounded-xl bg-black border border-[#00EA64]/20 text-slate-300 hover:text-[#00EA64] hover:border-[#00EA64] transition-all"
                   aria-label="Hannah K GitHub"
                 >
                   <Github className="w-4 h-4" />
@@ -184,7 +184,7 @@ export function ContactSection() {
 
           {/* Right Column: Contact Message Form (7 cols) */}
           <div className="lg:col-span-7">
-            <div className="p-6 sm:p-8 rounded-3xl bg-[#080F0B] border border-[#00EA64]/20">
+            <div className="p-6 sm:p-8 rounded-3xl bg-black border border-[#00EA64]/20">
               <h3 className="text-xl font-bold text-white">
                 Send a Message
               </h3>
@@ -206,7 +206,7 @@ export function ContactSection() {
                         setFormData({ ...formData, name: e.target.value })
                       }
                       placeholder="e.g. Priya Sharma"
-                      className={`w-full px-4 py-3 rounded-xl bg-[#0E1812] border text-sm text-white placeholder:text-slate-500 focus:outline-none transition-colors ${
+                      className={`w-full px-4 py-3 rounded-xl bg-black border text-sm text-white placeholder:text-slate-500 focus:outline-none transition-colors ${
                         formErrors.name
                           ? "border-red-500 focus:border-red-400"
                           : "border-[#00EA64]/20 focus:border-[#00EA64]"
@@ -231,7 +231,7 @@ export function ContactSection() {
                         setFormData({ ...formData, email: e.target.value })
                       }
                       placeholder="e.g. priya@domain.com"
-                      className={`w-full px-4 py-3 rounded-xl bg-[#0E1812] border text-sm text-white placeholder:text-slate-500 focus:outline-none transition-colors ${
+                      className={`w-full px-4 py-3 rounded-xl bg-black border text-sm text-white placeholder:text-slate-500 focus:outline-none transition-colors ${
                         formErrors.email
                           ? "border-red-500 focus:border-red-400"
                           : "border-[#00EA64]/20 focus:border-[#00EA64]"
@@ -257,7 +257,7 @@ export function ContactSection() {
                       setFormData({ ...formData, subject: e.target.value })
                     }
                     placeholder="e.g. Inquiry regarding Vehicle AI Project / Internship"
-                    className={`w-full px-4 py-3 rounded-xl bg-[#0E1812] border text-sm text-white placeholder:text-slate-500 focus:outline-none transition-colors ${
+                    className={`w-full px-4 py-3 rounded-xl bg-black border text-sm text-white placeholder:text-slate-500 focus:outline-none transition-colors ${
                       formErrors.subject
                         ? "border-red-500 focus:border-red-400"
                         : "border-[#00EA64]/20 focus:border-[#00EA64]"
@@ -282,7 +282,7 @@ export function ContactSection() {
                       setFormData({ ...formData, message: e.target.value })
                     }
                     placeholder="Write your message here..."
-                    className={`w-full px-4 py-3 rounded-xl bg-[#0E1812] border text-sm text-white placeholder:text-slate-500 focus:outline-none transition-colors resize-none ${
+                    className={`w-full px-4 py-3 rounded-xl bg-black border text-sm text-white placeholder:text-slate-500 focus:outline-none transition-colors resize-none ${
                       formErrors.message
                         ? "border-red-500 focus:border-red-400"
                         : "border-[#00EA64]/20 focus:border-[#00EA64]"
@@ -304,15 +304,6 @@ export function ContactSection() {
                   <span>Send Message via Email Client</span>
                 </button>
               </form>
-
-              {/* Notice explaining client mailto integration */}
-              <div className="mt-4 p-3 rounded-xl bg-[#0E1812] border border-[#00EA64]/20 flex items-start gap-2.5 text-xs text-slate-400">
-                <AlertCircle className="w-4 h-4 text-[#00EA64] shrink-0 mt-0.5" />
-                <span>
-                  <strong>Transparent Dispatch:</strong> Submitting will format your message into an authenticated email addressed to{" "}
-                  <code className="text-[#00EA64] font-mono">{personalInfo.email}</code>. No fake success states are shown.
-                </span>
-              </div>
             </div>
           </div>
 

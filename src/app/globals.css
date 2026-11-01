@@ -71,14 +71,14 @@ body {
 
 /* Clean Flat Card - NO Fuzzy Glow */
 .clean-card {
-  background: #122018;
+  background: #000000;
   border: 1px solid rgba(0, 234, 100, 0.22);
   transition: all 0.25s ease-out;
 }
 
 .clean-card:hover {
   border-color: #00EA64;
-  background: #172A20;
+  background: #000000;
 }
 
 @media (prefers-reduced-motion: reduce) {

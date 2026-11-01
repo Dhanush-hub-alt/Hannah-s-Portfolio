@@ -36,7 +36,7 @@ export function HeroSection() {
           {/* Left Column: Identity & CTAs (7 cols) */}
           <div className="lg:col-span-7 flex flex-col items-start text-left">
             {/* Introductory Pill */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#08170E] border border-[#00EA64]/40 text-[#00EA64] text-xs font-mono tracking-widest uppercase mb-5">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black border border-[#00EA64]/40 text-[#00EA64] text-xs font-mono tracking-widest uppercase mb-5">
               <span className="w-2 h-2 rounded-full bg-[#00EA64]" />
               <span>HELLO, I&apos;M</span>
             </div>
@@ -88,7 +88,7 @@ export function HeroSection() {
               <a
                 href={personalInfo.resumePath}
                 download="Hannah_K_Resume.pdf"
-                className="px-7 py-3.5 rounded-full font-bold text-sm text-white bg-[#0A160F] hover:bg-[#12241A] border-2 border-[#00EA64] hover:border-[#10E56A] transition-colors flex items-center gap-2 active:scale-95"
+                className="px-7 py-3.5 rounded-full font-bold text-sm text-white bg-black hover:bg-black/80 border-2 border-[#00EA64] hover:border-[#10E56A] transition-colors flex items-center gap-2 active:scale-95"
               >
                 <Download className="w-4 h-4 text-[#00EA64]" />
                 <span>Download Resume</span>
@@ -96,22 +96,19 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Right Column: Prominent Large Circular Profile Photo (5 cols) */}
+          {/* Right Column: Prominent Large Circular Profile Photo with Natural White BG (NO Green Border) */}
           <div className="lg:col-span-5 flex justify-center lg:justify-end">
             <div className="relative">
-              {/* Outer Crisp Green Ring (NO GLOW) */}
-              <div className="p-2 sm:p-2.5 rounded-full bg-black border-2 border-[#00EA64]/40">
-                {/* Large Profile Image: 300px on mobile, 360px on tablet, 420px on desktop */}
-                <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-[400px] lg:h-[400px] xl:w-[430px] xl:h-[430px] rounded-full overflow-hidden bg-white border-4 border-[#00EA64] shadow-2xl">
-                  <Image
-                    src={personalInfo.profileImage}
-                    alt="Hannah K - Computer Science and Engineering Student"
-                    fill
-                    priority
-                    className="object-cover object-top scale-105 hover:scale-110 transition-transform duration-500"
-                    sizes="(max-width: 640px) 256px, (max-width: 1024px) 384px, 430px"
-                  />
-                </div>
+              {/* Large Profile Image: 300px on mobile, 360px on tablet, 430px on desktop, pure white background, no green border */}
+              <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-[400px] lg:h-[400px] xl:w-[430px] xl:h-[430px] rounded-full overflow-hidden bg-white shadow-2xl">
+                <Image
+                  src={personalInfo.profileImage}
+                  alt="Hannah K - Computer Science and Engineering Student"
+                  fill
+                  priority
+                  className="object-cover object-top scale-105 hover:scale-110 transition-transform duration-500"
+                  sizes="(max-width: 640px) 256px, (max-width: 1024px) 384px, 430px"
+                />
               </div>
             </div>
           </div>
@@ -129,7 +126,7 @@ export function HeroSection() {
                 Real-Time 3D Computing Node &amp; Memory Matrix
               </h3>
             </div>
-            <span className="text-xs font-mono text-[#A7F3D0] bg-[#0E1812] px-3 py-1 rounded-md border border-[#00EA64]/30">
+            <span className="text-xs font-mono text-[#A7F3D0] bg-black px-3 py-1 rounded-md border border-[#00EA64]/30">
               Interactive 3D Engine • Move Cursor Over Matrix
             </span>
           </div>

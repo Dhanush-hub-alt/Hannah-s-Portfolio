@@ -31,7 +31,7 @@ export function SkillsSection() {
                 key={category.title}
                 onMouseEnter={() => setActiveCategory(index)}
                 onMouseLeave={() => setActiveCategory(null)}
-                className={`p-6 sm:p-7 rounded-3xl bg-[#0B150F] border transition-all duration-200 flex flex-col justify-between ${
+                className={`p-6 sm:p-7 rounded-3xl bg-black border transition-all duration-200 flex flex-col justify-between ${
                   isHovered
                     ? "border-[#00EA64] -translate-y-0.5"
                     : "border-[#00EA64]/25"
@@ -41,7 +41,7 @@ export function SkillsSection() {
                   {/* Category Header */}
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-xl bg-[#00EA64]/15 border border-[#00EA64]/40 text-[#00EA64] flex items-center justify-center font-bold">
+                      <div className="w-10 h-10 rounded-xl bg-black border border-[#00EA64]/40 text-[#00EA64] flex items-center justify-center font-bold">
                         <Icon className="w-5 h-5" />
                       </div>
                       <div>
@@ -62,8 +62,8 @@ export function SkillsSection() {
                         key={skill.name}
                         className={`px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-all ${
                           skill.highlight
-                            ? "bg-[#00EA64]/15 border border-[#00EA64]/50 text-white hover:border-[#00EA64]"
-                            : "bg-[#050B07] border border-[#00EA64]/20 text-[#A7F3D0] hover:text-white hover:border-[#00EA64]/40"
+                            ? "bg-black border border-[#00EA64] text-white hover:border-[#10E56A]"
+                            : "bg-black border border-[#00EA64]/20 text-[#A7F3D0] hover:text-white hover:border-[#00EA64]/40"
                         }`}
                       >
                         {skill.highlight && (
@@ -91,7 +91,7 @@ export function SkillsSection() {
         </div>
 
         {/* Soft Skills Section based on resume */}
-        <div className="mt-12 p-6 sm:p-7 rounded-3xl bg-[#0B150F] border border-[#00EA64]/25">
+        <div className="mt-12 p-6 sm:p-7 rounded-3xl bg-black border border-[#00EA64]/25">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div>
               <span className="text-xs font-mono uppercase tracking-wider text-[#00EA64] font-semibold">

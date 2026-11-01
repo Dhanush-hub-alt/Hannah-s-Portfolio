@@ -5,40 +5,40 @@ interface BrandLogoProps {
   size?: number;
 }
 
-export function BrandLogo({ className = "", size = 42 }: BrandLogoProps) {
+export function BrandLogo({ className = "", size = 48 }: BrandLogoProps) {
   return (
     <div
-      className={`relative flex items-center justify-center rounded-full bg-black border-2 border-[#00EA64] transition-all duration-300 group-hover:bg-[#00EA64]/10 group-hover:scale-105 ${className}`}
+      className={`relative flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110 ${className}`}
       style={{ width: size, height: size }}
     >
       <svg
         viewBox="0 0 100 100"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="w-[58%] h-[58%]"
+        className="w-full h-full"
       >
         {/* Left Vertical Pillar in HackerRank / Spotify Green */}
         <path
-          d="M24 20H38V80H24V20Z"
+          d="M16 12H34V88H16V12Z"
           fill="#00EA64"
         />
         {/* Right Vertical Pillar in HackerRank / Spotify Green */}
         <path
-          d="M62 20H76V80H62V20Z"
+          d="M66 12H84V88H66V12Z"
           fill="#00EA64"
         />
-        {/* Modern Cybernetic Angular Bridge in Crisp Green-White */}
+        {/* Modern Cybernetic Central Bridge */}
         <path
-          d="M38 44H62V56H38V44Z"
-          fill="#FFFFFF"
+          d="M34 42H66V58H34V42Z"
+          fill="#00EA64"
         />
-        {/* Geometric Accent Cuts */}
+        {/* Architectural Diagonal Accent Cuts */}
         <path
-          d="M38 32L46 20H54L46 32H38Z"
+          d="M34 26L46 12H56L44 26H34Z"
           fill="#00EA64"
         />
         <path
-          d="M62 68L54 80H46L54 68H62Z"
+          d="M66 74L54 88H44L56 74H66Z"
           fill="#00EA64"
         />
       </svg>

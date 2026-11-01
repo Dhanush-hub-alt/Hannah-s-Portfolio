@@ -63,7 +63,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="font-sans bg-bg-main text-text-primary antialiased selection:bg-brand-indigo/30 selection:text-text-primary">
+      <body className="font-sans bg-black text-white antialiased selection:bg-[#00EA64] selection:text-black">
         {children}
       </body>
     </html>

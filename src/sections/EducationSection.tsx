@@ -41,7 +41,7 @@ export function EducationSection() {
                       isEven ? "sm:pr-10 sm:text-right" : "sm:pl-10 sm:ml-auto sm:text-left"
                     }`}
                   >
-                    <div className="p-6 rounded-2xl bg-[#0B150F] border border-[#00EA64]/25 hover:border-[#00EA64] transition-all duration-200">
+                    <div className="p-6 rounded-2xl bg-black border border-[#00EA64]/25 hover:border-[#00EA64] transition-all duration-200">
                       {/* Status / Duration Pill */}
                       <div
                         className={`flex items-center gap-2 mb-2 ${

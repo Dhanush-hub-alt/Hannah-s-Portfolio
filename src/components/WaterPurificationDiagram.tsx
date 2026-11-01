@@ -52,11 +52,11 @@ export function WaterPurificationDiagram() {
   const currentStageData = stages.find((s) => s.id === activeStage) || stages[0];
 
   return (
-    <div className="w-full rounded-2xl bg-[#09140D] border border-[#00EA64]/30 p-4 sm:p-6">
+    <div className="w-full rounded-2xl bg-black border border-[#00EA64]/30 p-4 sm:p-6">
       {/* Header */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-[#00EA64]/20">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-[#00EA64]/15 text-[#00EA64] flex items-center justify-center font-bold">
+          <div className="w-9 h-9 rounded-xl bg-black border border-[#00EA64]/30 text-[#00EA64] flex items-center justify-center font-bold">
             <Droplet className="w-5 h-5" />
           </div>
           <div>
@@ -130,7 +130,7 @@ export function WaterPurificationDiagram() {
           </p>
         </div>
 
-        <div className="rounded-lg bg-[#0E1812] p-3.5 border border-[#00EA64]/20 flex flex-col justify-between">
+        <div className="rounded-lg bg-black p-3.5 border border-[#00EA64]/20 flex flex-col justify-between">
           <div>
             <div className="flex items-center gap-1.5 text-[#00EA64] text-xs font-bold">
               <Activity className="w-3.5 h-3.5" />

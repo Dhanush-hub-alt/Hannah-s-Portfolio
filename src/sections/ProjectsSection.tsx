@@ -30,7 +30,7 @@ export function ProjectsSection() {
   };
 
   return (
-    <section id="projects" className="py-20 lg:py-28 relative bg-[#060B08] border-t border-[#00EA64]/20">
+    <section id="projects" className="py-20 lg:py-28 relative bg-black border-t border-[#00EA64]/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           badge="APPLIED ENGINEERING"
@@ -48,7 +48,7 @@ export function ProjectsSection() {
             return (
               <div
                 key={project.id}
-                className="rounded-3xl bg-[#0B150F] border border-[#00EA64]/25 p-6 sm:p-8 lg:p-10 transition-all duration-200 hover:border-[#00EA64] relative overflow-hidden"
+                className="rounded-3xl bg-black border border-[#00EA64]/25 p-6 sm:p-8 lg:p-10 transition-all duration-200 hover:border-[#00EA64] relative overflow-hidden"
               >
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative z-10">
                   
@@ -65,7 +65,7 @@ export function ProjectsSection() {
                           <Calendar className="w-3 h-3 text-[#00EA64]" />
                           {project.year}
                         </span>
-                        <span className="text-xs font-mono font-bold px-2.5 py-1 rounded-md bg-[#00EA64]/15 text-[#00EA64] border border-[#00EA64]/40">
+                        <span className="text-xs font-mono font-bold px-2.5 py-1 rounded-md bg-black text-[#00EA64] border border-[#00EA64]">
                           {project.category}
                         </span>
                       </div>

@@ -21,7 +21,7 @@ export function CertificationsSection() {
       : certifications.filter((c) => c.category === filter);
 
   return (
-    <section id="certifications" className="py-20 lg:py-28 relative bg-[#060B08] border-t border-[#00EA64]/20">
+    <section id="certifications" className="py-20 lg:py-28 relative bg-black border-t border-[#00EA64]/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           badge="VALIDATED COMPETENCIES"
@@ -57,7 +57,7 @@ export function CertificationsSection() {
             return (
               <div
                 key={cert.id}
-                className="p-5 rounded-2xl bg-[#0B150F] border border-[#00EA64]/25 hover:border-[#00EA64] transition-all duration-200 flex flex-col justify-between group"
+                className="p-5 rounded-2xl bg-black border border-[#00EA64]/25 hover:border-[#00EA64] transition-all duration-200 flex flex-col justify-between group"
               >
                 <div>
                   <div className="flex items-center justify-between mb-3">
@@ -65,7 +65,7 @@ export function CertificationsSection() {
                       {cert.issuer}
                     </span>
                     {cert.level ? (
-                      <span className="text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full border border-[#00EA64]/50 bg-[#00EA64]/15 text-[#00EA64]">
+                      <span className="text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full border border-[#00EA64] bg-black text-[#00EA64]">
                         {cert.level}
                       </span>
                     ) : (

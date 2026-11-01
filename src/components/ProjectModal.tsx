@@ -45,7 +45,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
       />
 
       {/* Modal Dialog Card */}
-      <div className="relative w-full max-w-4xl max-h-[92vh] overflow-y-auto rounded-3xl bg-[#080F0B] border-2 border-[#00EA64] p-5 sm:p-8 z-10 custom-scrollbar shadow-2xl">
+      <div className="relative w-full max-w-4xl max-h-[92vh] overflow-y-auto rounded-3xl bg-black border-2 border-[#00EA64] p-5 sm:p-8 z-10 custom-scrollbar shadow-2xl">
         {/* Close Button */}
         <button
           onClick={onClose}
@@ -69,7 +69,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
               <Tag className="w-3.5 h-3.5 text-[#00EA64]" />
               {project.category}
             </span>
-            <span className="font-mono text-xs px-2.5 py-1 rounded-md bg-[#00EA64]/15 text-[#00EA64] border border-[#00EA64]/40 font-bold">
+            <span className="font-mono text-xs px-2.5 py-1 rounded-md bg-black text-[#00EA64] border border-[#00EA64] font-bold">
               {project.status}
             </span>
           </div>
@@ -136,7 +136,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
 
         {/* Key Functionality & Architecture */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-8">
-          <div className="p-5 rounded-2xl bg-[#0D1811] border border-[#00EA64]/25">
+          <div className="p-5 rounded-2xl bg-black border border-[#00EA64]/25">
             <h5 className="text-sm font-bold text-white mb-3 flex items-center gap-2">
               <CheckCircle2 className="w-4 h-4 text-[#00EA64]" />
               Key Functionality
@@ -151,7 +151,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
             </ul>
           </div>
 
-          <div className="p-5 rounded-2xl bg-[#0D1811] border border-[#00EA64]/25">
+          <div className="p-5 rounded-2xl bg-black border border-[#00EA64]/25">
             <h5 className="text-sm font-bold text-white mb-3 flex items-center gap-2">
               <Cpu className="w-4 h-4 text-[#00EA64]" />
               Technical Architecture Highlights

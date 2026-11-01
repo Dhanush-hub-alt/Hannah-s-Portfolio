@@ -7,11 +7,11 @@ export function HealthcareDashboardPreview() {
   const [activeTab, setActiveTab] = useState<"overview" | "dax" | "anomalies">("overview");
 
   return (
-    <div className="w-full rounded-2xl bg-[#09140D] border border-[#00EA64]/30 p-4 sm:p-6">
+    <div className="w-full rounded-2xl bg-black border border-[#00EA64]/30 p-4 sm:p-6">
       {/* Header and Filter Tab Switcher */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-[#00EA64]/20">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-[#00EA64]/15 text-[#00EA64] flex items-center justify-center font-bold">
+          <div className="w-9 h-9 rounded-xl bg-black border border-[#00EA64]/30 text-[#00EA64] flex items-center justify-center font-bold">
             <BarChart3 className="w-5 h-5" />
           </div>
           <div>
@@ -127,7 +127,7 @@ export function HealthcareDashboardPreview() {
                       {item.status}
                     </span>
                   </div>
-                  <div className="w-full h-2 rounded-full bg-[#0E1812] overflow-hidden border border-[#00EA64]/20">
+                  <div className="w-full h-2 rounded-full bg-black overflow-hidden border border-[#00EA64]/20">
                     <div
                       className={`h-full rounded-full ${item.color} transition-all duration-500`}
                       style={{ width: `${item.val}%` }}
@@ -182,19 +182,19 @@ RETURN
             Decision Support &amp; Data Comparison Workflow
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs pt-1">
-            <div className="p-3 rounded-lg bg-[#09140D] border border-[#00EA64]/20">
+            <div className="p-3 rounded-lg bg-black border border-[#00EA64]/20">
               <span className="font-bold text-white block">Data Verification</span>
               <p className="text-[#A7F3D0] mt-1 text-[11px]">
                 Validation rules compare incoming real-time records against historical ranges to filter out sensor artifacts.
               </p>
             </div>
-            <div className="p-3 rounded-lg bg-[#09140D] border border-[#00EA64]/20">
+            <div className="p-3 rounded-lg bg-black border border-[#00EA64]/20">
               <span className="font-bold text-white block">Trend Correlation</span>
               <p className="text-[#A7F3D0] mt-1 text-[11px]">
                 Multi-metric correlation links secondary vital shifts with primary anomalies for holistic pattern review.
               </p>
             </div>
-            <div className="p-3 rounded-lg bg-[#09140D] border border-[#00EA64]/20">
+            <div className="p-3 rounded-lg bg-black border border-[#00EA64]/20">
               <span className="font-bold text-white block">Visual Communication</span>
               <p className="text-[#A7F3D0] mt-1 text-[11px]">
                 Translates abstract clinical statistics into clear graphical indicators for rapid decision support.

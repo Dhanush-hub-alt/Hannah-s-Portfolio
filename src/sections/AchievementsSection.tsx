@@ -14,7 +14,7 @@ export function AchievementsSection() {
   };
 
   return (
-    <section id="achievements" className="py-20 lg:py-28 relative bg-[#060B08] border-t border-[#00EA64]/20">
+    <section id="achievements" className="py-20 lg:py-28 relative bg-black border-t border-[#00EA64]/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           badge="HONORS &amp; RECOGNITION"
@@ -33,8 +33,8 @@ export function AchievementsSection() {
                 key={award.id}
                 className={`p-6 rounded-3xl border transition-all duration-200 flex flex-col justify-between group ${
                   isBestPerformer
-                    ? "bg-[#0B150F] border-2 border-[#00EA64]"
-                    : "bg-[#0B150F] border border-[#00EA64]/25 hover:border-[#00EA64]"
+                    ? "bg-black border-2 border-[#00EA64]"
+                    : "bg-black border border-[#00EA64]/25 hover:border-[#00EA64]"
                 }`}
               >
                 <div>
@@ -43,13 +43,13 @@ export function AchievementsSection() {
                       className={`w-11 h-11 rounded-2xl flex items-center justify-center transition-transform group-hover:scale-105 ${
                         isBestPerformer
                           ? "bg-[#00EA64] text-black font-extrabold"
-                          : "bg-[#00EA64]/15 text-[#00EA64] border border-[#00EA64]/30"
+                          : "bg-black text-[#00EA64] border border-[#00EA64]/30"
                       }`}
                     >
                       <Icon className="w-5 h-5" />
                     </div>
                     {award.year ? (
-                      <span className="text-xs font-mono font-bold px-2.5 py-0.5 rounded-full bg-[#00EA64]/15 text-[#00EA64] border border-[#00EA64]/30">
+                      <span className="text-xs font-mono font-bold px-2.5 py-0.5 rounded-full bg-black text-[#00EA64] border border-[#00EA64]">
                         {award.year}
                       </span>
                     ) : (

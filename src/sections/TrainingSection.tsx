@@ -25,11 +25,11 @@ export function TrainingSection() {
             return (
               <div
                 key={item.id}
-                className="p-6 sm:p-7 rounded-3xl bg-[#0B150F] border border-[#00EA64]/25 hover:border-[#00EA64] transition-all duration-200 flex flex-col justify-between group"
+                className="p-6 sm:p-7 rounded-3xl bg-black border border-[#00EA64]/25 hover:border-[#00EA64] transition-all duration-200 flex flex-col justify-between group"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <div className="w-10 h-10 rounded-xl bg-[#00EA64]/15 border border-[#00EA64]/40 text-[#00EA64] flex items-center justify-center font-bold">
+                    <div className="w-10 h-10 rounded-xl bg-black border border-[#00EA64]/40 text-[#00EA64] flex items-center justify-center font-bold">
                       <Icon className="w-5 h-5" />
                     </div>
                     <span className="text-[10px] font-mono text-[#00EA64] uppercase tracking-wider px-2 py-0.5 rounded bg-black border border-[#00EA64]/30 font-bold">

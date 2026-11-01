@@ -17,10 +17,14 @@ import {
   X,
   ArrowUpRight,
   MessageSquare,
+  Github,
+  Linkedin,
 } from "lucide-react";
 
 export function Navbar() {
+  const [isVisible, setIsVisible] = useState(true);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
 
@@ -38,10 +42,30 @@ export function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      const currentScrollY = window.scrollY;
 
+      // Determine background state
+      setIsScrolled(currentScrollY > 20);
+
+      // Dynamic smart hide/reveal on scroll: navbar is not static while scrolling
+      if (currentScrollY > 80) {
+        if (currentScrollY > lastScrollY && !mobileMenuOpen) {
+          // Scrolling down -> hide navbar
+          setIsVisible(false);
+        } else {
+          // Scrolling up -> show navbar
+          setIsVisible(true);
+        }
+      } else {
+        // Near top -> always visible
+        setIsVisible(true);
+      }
+
+      setLastScrollY(currentScrollY);
+
+      // Active section highlight tracking
       const sections = navItems.map((link) => link.href.replace("#", ""));
-      const currentPos = window.scrollY + 220;
+      const currentPos = currentScrollY + 220;
 
       for (let i = sections.length - 1; i >= 0; i--) {
         const el = document.getElementById(sections[i]);
@@ -54,38 +78,35 @@ export function Navbar() {
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [lastScrollY, mobileMenuOpen]);
 
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 border-none ${
+        className={`fixed top-0 left-0 right-0 z-40 transition-transform duration-300 ease-in-out border-none ${
+          isVisible ? "translate-y-0" : "-translate-y-full"
+        } ${
           isScrolled
-            ? "py-3 bg-black/90 backdrop-blur-md shadow-2xl"
-            : "py-5 bg-transparent"
+            ? "py-2.5 bg-black/95 backdrop-blur-md shadow-2xl"
+            : "py-4 bg-transparent"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+        <div className="w-full px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           
-          {/* Brand Logo with Circular Border */}
+          {/* Top Most Left Corner: Logo & Enlarged Title "Hannah K" (No B.E subtitle, No circle border) */}
           <a
             href="#home"
-            className="flex items-center gap-3 group focus:outline-none"
+            className="flex items-center gap-3 group focus:outline-none shrink-0"
             aria-label="Hannah K Home"
           >
-            <BrandLogo size={42} />
-            <div className="flex flex-col">
-              <span className="font-extrabold text-sm text-white tracking-tight group-hover:text-[#00EA64] transition-colors">
-                {personalInfo.name}
-              </span>
-              <span className="text-[10px] font-mono text-[#00EA64] font-semibold">
-                B.E CSE • 2027
-              </span>
-            </div>
+            <BrandLogo size={46} />
+            <span className="font-extrabold text-xl sm:text-2xl text-white tracking-tight group-hover:text-[#00EA64] transition-colors">
+              Hannah <span className="text-[#00EA64]">K</span>
+            </span>
           </a>
 
-          {/* Desktop Navigation Links with Individual Icons, Animated Underline & No Border */}
-          <nav className="hidden xl:flex items-center gap-1 bg-[#0A120D]/90 backdrop-blur-md rounded-full px-5 py-2 border-none shadow-lg">
+          {/* Center Navigation Links: Individual Icons, Hover Underline, No Border */}
+          <nav className="hidden 2xl:flex items-center gap-1 bg-black/95 rounded-full px-5 py-2 border-none">
             {navItems.map((item) => {
               const Icon = item.icon;
               const isActive = activeSection === item.href.replace("#", "");
@@ -123,21 +144,59 @@ export function Navbar() {
             })}
           </nav>
 
-          {/* Right Action: Let's Talk CTA & Mobile Menu Toggle */}
-          <div className="flex items-center gap-3">
+          {/* Top Most Right Corner: GitHub, LinkedIn, Mail & Contact Buttons */}
+          <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
+            {/* GitHub Button */}
+            <a
+              href={personalInfo.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 sm:px-3 sm:py-1.5 rounded-full bg-black border border-[#00EA64]/40 text-slate-200 hover:text-[#00EA64] hover:border-[#00EA64] transition-all flex items-center gap-1.5 text-xs font-semibold active:scale-95"
+              aria-label="GitHub Profile"
+              title="GitHub"
+            >
+              <Github className="w-3.5 h-3.5 text-[#00EA64]" />
+              <span className="hidden xl:inline">GitHub</span>
+            </a>
+
+            {/* LinkedIn Button */}
+            <a
+              href={personalInfo.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 sm:px-3 sm:py-1.5 rounded-full bg-black border border-[#00EA64]/40 text-slate-200 hover:text-[#00EA64] hover:border-[#00EA64] transition-all flex items-center gap-1.5 text-xs font-semibold active:scale-95"
+              aria-label="LinkedIn Profile"
+              title="LinkedIn"
+            >
+              <Linkedin className="w-3.5 h-3.5 text-[#00EA64]" />
+              <span className="hidden xl:inline">LinkedIn</span>
+            </a>
+
+            {/* Mail Button */}
+            <a
+              href={`mailto:${personalInfo.email}`}
+              className="p-2 sm:px-3 sm:py-1.5 rounded-full bg-black border border-[#00EA64]/40 text-slate-200 hover:text-[#00EA64] hover:border-[#00EA64] transition-all flex items-center gap-1.5 text-xs font-semibold active:scale-95"
+              aria-label="Send Email"
+              title="Mail"
+            >
+              <Mail className="w-3.5 h-3.5 text-[#00EA64]" />
+              <span className="hidden xl:inline">Mail</span>
+            </a>
+
+            {/* Contact Button */}
             <a
               href="#contact"
-              className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold text-black bg-[#00EA64] hover:bg-[#10E56A] transition-all active:scale-95 border-none shadow-btn"
+              className="px-3 py-1.5 sm:px-4 sm:py-1.5 rounded-full text-xs font-bold text-black bg-[#00EA64] hover:bg-[#10E56A] transition-all flex items-center gap-1.5 active:scale-95 border-none shadow-btn"
+              title="Contact Section"
             >
               <MessageSquare className="w-3.5 h-3.5 text-black" />
-              <span>Let&apos;s Talk</span>
-              <ArrowUpRight className="w-3.5 h-3.5 text-black" />
+              <span>Contact</span>
             </a>
 
             {/* Mobile Hamburger Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="xl:hidden p-2.5 rounded-full bg-[#122018] text-[#00EA64] hover:bg-[#00EA64] hover:text-black transition-colors focus:outline-none border-none"
+              className="2xl:hidden p-2 rounded-full bg-black text-[#00EA64] border border-[#00EA64]/30 hover:bg-[#00EA64] hover:text-black transition-colors focus:outline-none"
               aria-label="Toggle Navigation Menu"
             >
               {mobileMenuOpen ? (
@@ -152,13 +211,13 @@ export function Navbar() {
 
       {/* Mobile Drawer Overlay */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-30 xl:hidden">
+        <div className="fixed inset-0 z-30 2xl:hidden">
           <div
             className="fixed inset-0 bg-black/90 backdrop-blur-md"
             onClick={() => setMobileMenuOpen(false)}
           />
 
-          <div className="fixed top-20 right-4 left-4 max-h-[calc(100vh-6rem)] overflow-y-auto rounded-3xl bg-[#080F0B] p-6 shadow-2xl flex flex-col justify-between border-none">
+          <div className="fixed top-20 right-4 left-4 max-h-[calc(100vh-6rem)] overflow-y-auto rounded-3xl bg-black p-6 shadow-2xl flex flex-col justify-between border border-[#00EA64]/30">
             <div className="flex flex-col space-y-1">
               <div className="text-xs font-mono uppercase tracking-wider text-[#00EA64] px-3 py-2 font-bold">
                 Navigation
@@ -175,7 +234,7 @@ export function Navbar() {
                     className={`px-4 py-3 rounded-xl text-sm font-semibold flex items-center justify-between transition-all ${
                       isActive
                         ? "bg-[#00EA64] text-black font-bold"
-                        : "text-slate-300 hover:text-white hover:bg-[#122018]"
+                        : "text-slate-300 hover:text-white hover:bg-black/80"
                     }`}
                   >
                     <div className="flex items-center gap-3">
@@ -188,14 +247,41 @@ export function Navbar() {
               })}
             </div>
 
-            <div className="mt-6 pt-5">
+            <div className="mt-6 pt-5 border-t border-[#00EA64]/20 flex flex-col gap-2.5">
+              <div className="grid grid-cols-3 gap-2">
+                <a
+                  href={personalInfo.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="py-2.5 rounded-xl bg-black border border-[#00EA64]/40 text-xs font-semibold text-center text-slate-200 hover:text-[#00EA64] flex items-center justify-center gap-1"
+                >
+                  <Github className="w-3.5 h-3.5 text-[#00EA64]" />
+                  <span>GitHub</span>
+                </a>
+                <a
+                  href={personalInfo.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="py-2.5 rounded-xl bg-black border border-[#00EA64]/40 text-xs font-semibold text-center text-slate-200 hover:text-[#00EA64] flex items-center justify-center gap-1"
+                >
+                  <Linkedin className="w-3.5 h-3.5 text-[#00EA64]" />
+                  <span>LinkedIn</span>
+                </a>
+                <a
+                  href={`mailto:${personalInfo.email}`}
+                  className="py-2.5 rounded-xl bg-black border border-[#00EA64]/40 text-xs font-semibold text-center text-slate-200 hover:text-[#00EA64] flex items-center justify-center gap-1"
+                >
+                  <Mail className="w-3.5 h-3.5 text-[#00EA64]" />
+                  <span>Mail</span>
+                </a>
+              </div>
               <a
                 href="#contact"
                 onClick={() => setMobileMenuOpen(false)}
                 className="w-full py-3.5 rounded-full text-sm font-bold text-center text-black bg-[#00EA64] hover:bg-[#10E56A] flex items-center justify-center gap-2 border-none shadow-btn"
               >
                 <MessageSquare className="w-4 h-4 text-black" />
-                <span>Let&apos;s Connect</span>
+                <span>Contact Me</span>
               </a>
             </div>
           </div>

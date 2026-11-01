@@ -20,11 +20,11 @@ export function LanguagesSection() {
           {languages.map((item) => (
             <div
               key={item.language}
-              className="p-6 rounded-2xl bg-[#0B150F] border border-[#00EA64]/25 hover:border-[#00EA64] transition-all duration-200 flex flex-col justify-between"
+              className="p-6 rounded-2xl bg-black border border-[#00EA64]/25 hover:border-[#00EA64] transition-all duration-200 flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-3">
-                  <div className="w-8 h-8 rounded-lg bg-[#00EA64]/15 text-[#00EA64] flex items-center justify-center font-bold">
+                  <div className="w-8 h-8 rounded-lg bg-black border border-[#00EA64]/30 text-[#00EA64] flex items-center justify-center font-bold">
                     <Languages className="w-4 h-4" />
                   </div>
                   <span className="text-[10px] font-mono uppercase tracking-wider text-black bg-[#00EA64] font-extrabold px-2 py-0.5 rounded">
