@@ -3,7 +3,7 @@
 import React from "react";
 import { personalInfo } from "@/data/portfolio";
 import { SectionHeader } from "@/components/SectionHeader";
-import { Terminal, Code2, Cpu, Sparkles, BookOpen, Layers } from "lucide-react";
+import { Code2, Cpu, BookOpen, Layers, CheckCircle2 } from "lucide-react";
 
 export function AboutSection() {
   const pillars = [
@@ -38,7 +38,7 @@ export function AboutSection() {
   ];
 
   return (
-    <section id="about" className="py-20 lg:py-28 relative">
+    <section id="about" className="py-20 lg:py-28 relative bg-zinc-950 border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           badge="IDENTITY & TRAJECTORY"
@@ -50,7 +50,7 @@ export function AboutSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           
           {/* Editorial Text (7 cols) */}
-          <div className="lg:col-span-7 space-y-5 text-text-secondary leading-relaxed text-base sm:text-lg">
+          <div className="lg:col-span-7 space-y-5 text-zinc-400 leading-relaxed text-base sm:text-lg">
             {personalInfo.aboutParagraphs.map((para, index) => (
               <p key={index} className="font-normal">
                 {para}
@@ -59,22 +59,22 @@ export function AboutSection() {
 
             {/* Quick Facts Strip */}
             <div className="pt-6 grid grid-cols-2 sm:grid-cols-3 gap-3">
-              <div className="p-3.5 rounded-xl bg-bg-card border border-border-subtle">
-                <span className="text-[10px] font-mono uppercase text-brand-cyan">Degree Target</span>
-                <div className="text-sm font-bold text-text-primary mt-1">B.E. Computer Science</div>
-                <div className="text-xs text-text-muted mt-0.5">Sep 2023 – May 2027</div>
+              <div className="p-4 rounded-2xl bg-zinc-900/80 border border-white/10">
+                <span className="text-[10px] font-mono uppercase text-zinc-400 tracking-wider">Degree Target</span>
+                <div className="text-sm font-bold text-white mt-1">B.E. Computer Science</div>
+                <div className="text-xs text-zinc-500 mt-0.5 font-mono">2023 – 2027</div>
               </div>
 
-              <div className="p-3.5 rounded-xl bg-bg-card border border-border-subtle">
-                <span className="text-[10px] font-mono uppercase text-brand-violet">Base Location</span>
-                <div className="text-sm font-bold text-text-primary mt-1">Erode, Tamil Nadu</div>
-                <div className="text-xs text-text-muted mt-0.5">India</div>
+              <div className="p-4 rounded-2xl bg-zinc-900/80 border border-white/10">
+                <span className="text-[10px] font-mono uppercase text-zinc-400 tracking-wider">Base Location</span>
+                <div className="text-sm font-bold text-white mt-1">Erode, Tamil Nadu</div>
+                <div className="text-xs text-zinc-500 mt-0.5">India</div>
               </div>
 
-              <div className="p-3.5 rounded-xl bg-bg-card border border-border-subtle col-span-2 sm:col-span-1">
-                <span className="text-[10px] font-mono uppercase text-brand-indigo">Recognition</span>
-                <div className="text-sm font-bold text-text-primary mt-1">Best Performer</div>
-                <div className="text-xs text-text-muted mt-0.5">Year 2025 Awardee</div>
+              <div className="p-4 rounded-2xl bg-zinc-900/80 border border-white/10 col-span-2 sm:col-span-1">
+                <span className="text-[10px] font-mono uppercase text-zinc-400 tracking-wider">Recognition</span>
+                <div className="text-sm font-bold text-white mt-1">Best Performer</div>
+                <div className="text-xs text-zinc-500 mt-0.5 font-mono">Year 2025 Awardee</div>
               </div>
             </div>
           </div>
@@ -86,20 +86,20 @@ export function AboutSection() {
               return (
                 <div
                   key={idx}
-                  className="p-5 rounded-2xl bg-bg-card border border-border-subtle hover:border-brand-indigo/40 transition-all duration-300 group"
+                  className="p-5 rounded-2xl bg-zinc-900/70 border border-white/10 hover:border-white/30 transition-all duration-300 group"
                 >
                   <div className="flex items-center justify-between mb-3">
-                    <div className="w-9 h-9 rounded-xl bg-brand-indigo/15 text-brand-indigo group-hover:bg-brand-indigo group-hover:text-white transition-colors flex items-center justify-center">
+                    <div className="w-9 h-9 rounded-xl bg-white/10 text-white group-hover:bg-white group-hover:text-black transition-colors flex items-center justify-center">
                       <Icon className="w-4 h-4" />
                     </div>
-                    <span className="text-[10px] font-mono font-semibold px-2 py-0.5 rounded bg-bg-elevated border border-white/5 text-brand-cyan">
+                    <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-black border border-white/10 text-zinc-400">
                       {pillar.tag}
                     </span>
                   </div>
-                  <h3 className="text-base font-bold text-text-primary">
+                  <h3 className="text-base font-bold text-white">
                     {pillar.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-text-secondary mt-1.5 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-zinc-400 mt-1.5 leading-relaxed">
                     {pillar.description}
                   </p>
                 </div>

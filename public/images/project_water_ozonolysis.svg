@@ -1,0 +1,88 @@
+<svg viewBox="0 0 800 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+  {/* Dark Scientific Chamber Canvas */}
+  <rect width="800" height="450" rx="20" fill="#0A0A0A" />
+  <rect x="1" y="1" width="798" height="448" rx="19" stroke="#FFFFFF" stroke-opacity="0.12" stroke-width="2" />
+
+  {/* Header Ribbon */}
+  <rect x="30" y="24" width="740" height="50" rx="10" fill="#141414" stroke="#FFFFFF" stroke-opacity="0.1" />
+  <circle cx="55" cy="49" r="6" fill="#FFFFFF" />
+  <text x="72" y="46" font-family="'Manrope', sans-serif" font-size="13" font-weight="800" fill="#FFFFFF">OZONOLYSIS WATER PURIFICATION REACTOR</text>
+  <text x="72" y="60" font-family="'Manrope', monospace" font-size="9" fill="#71717A">OXIDATIVE CLEAVAGE OF ORGANIC POLLUTANTS • PYTHON &amp; MATLAB MODELING</text>
+  
+  <rect x="630" y="36" width="125" height="26" rx="6" fill="#202020" stroke="#FFFFFF" stroke-opacity="0.2" />
+  <text x="692" y="53" font-family="'Manrope', monospace" font-size="10" font-weight="700" fill="#FFFFFF" text-anchor="middle">RESEARCH STUDY</text>
+
+  {/* Left: 4-Stage Reaction Pathway Process */}
+  <g transform="translate(30, 95)">
+    <rect width="450" height="325" rx="12" fill="#121212" stroke="#FFFFFF" stroke-opacity="0.12" />
+    <text x="20" y="28" font-family="'Manrope', sans-serif" font-size="11" font-weight="700" fill="#FFFFFF">OXIDATION KINETICS &amp; REACTION CHAMBER</text>
+    
+    {/* Stage 1: Ozone Gas Diffuser */}
+    <g transform="translate(20, 50)">
+      <rect width="90" height="120" rx="8" fill="#1C1C1E" stroke="#FFFFFF" stroke-opacity="0.2" />
+      <text x="45" y="20" font-family="'Manrope', monospace" font-size="8" font-weight="700" fill="#FFFFFF" text-anchor="middle">STAGE 01</text>
+      <text x="45" y="35" font-family="'Manrope', sans-serif" font-size="9" font-weight="700" fill="#A1A1AA" text-anchor="middle">O3 Injection</text>
+      {/* Microbubbles */}
+      <circle cx="45" cy="60" r="4" fill="#FFFFFF" stroke="#000" stroke-width="1" />
+      <circle cx="35" cy="80" r="6" fill="#FFFFFF" stroke="#000" stroke-width="1" />
+      <circle cx="55" cy="95" r="5" fill="#FFFFFF" stroke="#000" stroke-width="1" />
+    </g>
+
+    {/* Stage 2: Direct & Radical Attack */}
+    <g transform="translate(125, 50)">
+      <rect width="90" height="120" rx="8" fill="#1C1C1E" stroke="#FFFFFF" stroke-opacity="0.3" />
+      <text x="45" y="20" font-family="'Manrope', monospace" font-size="8" font-weight="700" fill="#FFFFFF" text-anchor="middle">STAGE 02</text>
+      <text x="45" y="35" font-family="'Manrope', sans-serif" font-size="9" font-weight="700" fill="#A1A1AA" text-anchor="middle">·OH Radicals</text>
+      {/* Molecular representation */}
+      <circle cx="35" cy="75" r="10" fill="#2C2C2E" stroke="#FFFFFF" />
+      <circle cx="55" cy="75" r="8" fill="#FFFFFF" />
+      <line x1="42" y1="75" x2="48" y2="75" stroke="#FFFFFF" stroke-width="2" />
+    </g>
+
+    {/* Stage 3: Cleavage */}
+    <g transform="translate(230, 50)">
+      <rect width="90" height="120" rx="8" fill="#1C1C1E" stroke="#FFFFFF" stroke-opacity="0.4" />
+      <text x="45" y="20" font-family="'Manrope', monospace" font-size="8" font-weight="700" fill="#FFFFFF" text-anchor="middle">STAGE 03</text>
+      <text x="45" y="35" font-family="'Manrope', sans-serif" font-size="9" font-weight="700" fill="#A1A1AA" text-anchor="middle">C=C Cleavage</text>
+      <path d="M35 70 L55 85" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="3 2" />
+      <circle cx="35" cy="70" r="5" fill="#71717A" />
+      <circle cx="55" cy="85" r="5" fill="#71717A" />
+    </g>
+
+    {/* Stage 4: Treated Effluent */}
+    <g transform="translate(335, 50)">
+      <rect width="95" height="120" rx="8" fill="#FFFFFF" />
+      <text x="47" y="20" font-family="'Manrope', monospace" font-size="8" font-weight="800" fill="#000000" text-anchor="middle">STAGE 04</text>
+      <text x="47" y="35" font-family="'Manrope', sans-serif" font-size="9" font-weight="800" fill="#000000" text-anchor="middle">Purified Water</text>
+      <path d="M47 65 C40 80 32 90 47 105 C62 90 54 80 47 65 Z" fill="#000000" />
+    </g>
+
+    {/* Bottom summary text in chamber */}
+    <rect x="20" y="195" width="410" height="105" rx="8" fill="#171717" stroke="#FFFFFF" stroke-opacity="0.1" />
+    <text x="35" y="220" font-family="'Manrope', sans-serif" font-size="10" font-weight="700" fill="#FFFFFF">KINETIC REACTION MODELING</text>
+    <text x="35" y="240" font-family="'Manrope', monospace" font-size="9" fill="#A1A1AA">• Evaluated ozone oxidative cleavage of complex pollutants</text>
+    <text x="35" y="260" font-family="'Manrope', monospace" font-size="9" fill="#A1A1AA">• Differential degradation equations solved with MATLAB ODE suite</text>
+    <text x="35" y="280" font-family="'Manrope', monospace" font-size="9" fill="#A1A1AA">• Laboratory spectrophotometric empirical validation via Python</text>
+  </g>
+
+  {/* Right: Kinetic Decay Curve Graph */}
+  <g transform="translate(500, 95)">
+    <rect width="270" height="325" rx="12" fill="#121212" stroke="#FFFFFF" stroke-opacity="0.12" />
+    <text x="20" y="28" font-family="'Manrope', sans-serif" font-size="11" font-weight="700" fill="#FFFFFF">POLLUTANT DECAY CURVE</text>
+    <text x="20" y="44" font-family="'Manrope', monospace" font-size="8" fill="#71717A">MATLAB Concentration vs Contact Time</text>
+
+    {/* Axes */}
+    <line x1="30" y1="70" x2="30" y2="260" stroke="#FFFFFF" stroke-opacity="0.3" stroke-width="1.5" />
+    <line x1="30" y1="260" x2="245" y2="260" stroke="#FFFFFF" stroke-opacity="0.3" stroke-width="1.5" />
+
+    {/* Exponential Decay Wave */}
+    <path d="M30 90 Q70 200 130 235 T240 255" stroke="#FFFFFF" stroke-width="2.5" fill="none" />
+    
+    <text x="15" y="80" font-family="'Manrope', monospace" font-size="8" fill="#71717A">C0</text>
+    <text x="15" y="260" font-family="'Manrope', monospace" font-size="8" fill="#71717A">0</text>
+    <text x="235" y="275" font-family="'Manrope', monospace" font-size="8" fill="#71717A">TIME</text>
+
+    <rect x="30" y="280" width="215" height="30" rx="6" fill="#1C1C1E" stroke="#FFFFFF" stroke-opacity="0.15" />
+    <text x="137" y="299" font-family="'Manrope', monospace" font-size="9" font-weight="700" fill="#FFFFFF" text-anchor="middle">ORGANIC REDUCTION VERIFIED</text>
+  </g>
+</svg>

@@ -10,7 +10,7 @@ import {
 
 export const personalInfo = {
   name: "Hannah K",
-  monogram: "HK",
+  monogram: "H",
   title: "Computer Science and Engineering Student",
   institution: "Nandha College of Technology",
   institutionPeriod: "2023 – 2027",
@@ -387,3 +387,4 @@ export const languages: LanguageItem[] = [
   { language: "Hindi", proficiency: "Intermediate", percentage: 65 },
   { language: "Hebrew", proficiency: "Basic", percentage: 35 },
 ];
+

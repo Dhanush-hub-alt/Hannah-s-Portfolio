@@ -64,3 +64,4 @@ export interface LanguageItem {
   proficiency: "Native" | "Professional" | "Intermediate" | "Basic";
   percentage: number;
 }
+

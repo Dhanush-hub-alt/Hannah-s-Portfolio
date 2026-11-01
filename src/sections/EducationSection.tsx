@@ -7,7 +7,7 @@ import { GraduationCap, Calendar, MapPin, CheckCircle2 } from "lucide-react";
 
 export function EducationSection() {
   return (
-    <section id="education" className="py-20 lg:py-28 relative bg-bg-secondary/40 border-y border-border-subtle">
+    <section id="education" className="py-20 lg:py-28 relative bg-zinc-950 border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           badge="FORMAL ACADEMICS"
@@ -19,7 +19,7 @@ export function EducationSection() {
         {/* Timeline Container */}
         <div className="relative max-w-3xl mx-auto mt-12">
           {/* Vertical Connecting Line */}
-          <div className="absolute top-4 bottom-4 left-4 sm:left-1/2 -translate-x-1/2 w-0.5 bg-gradient-to-b from-brand-indigo via-brand-violet to-brand-cyan/20 pointer-events-none" />
+          <div className="absolute top-4 bottom-4 left-4 sm:left-1/2 -translate-x-1/2 w-[1px] bg-white/20 pointer-events-none" />
 
           <div className="space-y-12">
             {educationList.map((edu, index) => {
@@ -31,7 +31,7 @@ export function EducationSection() {
                   className="relative flex flex-col sm:flex-row items-start"
                 >
                   {/* Timeline Central Dot */}
-                  <div className="absolute left-4 sm:left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-bg-card border-2 border-brand-indigo flex items-center justify-center text-brand-cyan z-10 shadow-indigo-glow">
+                  <div className="absolute left-4 sm:left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-black border-2 border-white flex items-center justify-center text-white z-10 shadow-[0_0_12px_rgba(255,255,255,0.3)]">
                     <GraduationCap className="w-4 h-4" />
                   </div>
 
@@ -41,7 +41,7 @@ export function EducationSection() {
                       isEven ? "sm:pr-10 sm:text-right" : "sm:pl-10 sm:ml-auto sm:text-left"
                     }`}
                   >
-                    <div className="p-6 rounded-2xl bg-bg-card border border-border-subtle hover:border-brand-indigo/40 transition-all duration-300 shadow-sm">
+                    <div className="p-6 rounded-2xl bg-zinc-900 border border-white/10 hover:border-white/30 transition-all duration-300 shadow-sm">
                       {/* Status / Duration Pill */}
                       <div
                         className={`flex items-center gap-2 mb-2 ${
@@ -49,39 +49,38 @@ export function EducationSection() {
                         }`}
                       >
                         {edu.isCurrent && (
-                          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
-                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold bg-white text-black">
                             Current Degree
                           </span>
                         )}
-                        <span className="inline-flex items-center gap-1.5 text-xs font-mono font-medium text-brand-cyan">
+                        <span className="inline-flex items-center gap-1.5 text-xs font-mono font-medium text-zinc-300">
                           <Calendar className="w-3.5 h-3.5" />
                           {edu.period}
                         </span>
                       </div>
 
                       {/* Institution Name */}
-                      <h3 className="text-lg font-bold text-text-primary tracking-tight">
+                      <h3 className="text-lg font-bold text-white tracking-tight">
                         {edu.institution}
                       </h3>
 
                       {/* Qualification */}
-                      <p className="text-sm font-semibold text-brand-violet mt-1">
+                      <p className="text-sm font-semibold text-zinc-300 mt-1">
                         {edu.qualification}
                       </p>
 
                       {/* Location */}
                       <div
-                        className={`flex items-center gap-1.5 text-xs text-text-muted mt-2 ${
+                        className={`flex items-center gap-1.5 text-xs text-zinc-500 mt-2 ${
                           isEven ? "sm:justify-end" : "sm:justify-start"
                         }`}
                       >
-                        <MapPin className="w-3.5 h-3.5 text-brand-cyan" />
+                        <MapPin className="w-3.5 h-3.5 text-zinc-400" />
                         <span>{edu.location}</span>
                       </div>
 
                       {/* Highlights */}
-                      <div className="mt-4 pt-3 border-t border-border-subtle text-xs text-text-secondary space-y-1.5">
+                      <div className="mt-4 pt-3 border-t border-white/10 text-xs text-zinc-400 space-y-1.5">
                         {edu.highlights.map((h, i) => (
                           <div
                             key={i}
@@ -89,7 +88,7 @@ export function EducationSection() {
                               isEven ? "sm:flex-row-reverse sm:text-right" : "text-left"
                             }`}
                           >
-                            <CheckCircle2 className="w-3.5 h-3.5 text-brand-cyan shrink-0 mt-0.5" />
+                            <CheckCircle2 className="w-3.5 h-3.5 text-white shrink-0 mt-0.5" />
                             <span>{h}</span>
                           </div>
                         ))}

@@ -20,14 +20,14 @@ export function ScrollProgressBar() {
 
   return (
     <div
-      className="fixed top-0 left-0 right-0 h-[3px] z-[100] bg-transparent pointer-events-none"
+      className="fixed top-0 left-0 right-0 h-[2px] z-[100] bg-transparent pointer-events-none"
       role="progressbar"
       aria-valuenow={Math.round(scrollProgress)}
       aria-valuemin={0}
       aria-valuemax={100}
     >
       <div
-        className="h-full bg-gradient-to-r from-brand-indigo via-brand-violet to-brand-cyan transition-all duration-150 ease-out"
+        className="h-full bg-gradient-to-r from-zinc-500 via-white to-zinc-300 transition-all duration-150 ease-out shadow-[0_0_8px_rgba(255,255,255,0.7)]"
         style={{ width: `${scrollProgress}%` }}
       />
     </div>

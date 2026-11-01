@@ -1,7 +1,6 @@
 import React from "react";
 import { Navbar } from "@/components/Navbar";
 import { ScrollProgressBar } from "@/components/ScrollProgressBar";
-import { CustomCursor } from "@/components/CustomCursor";
 import { HeroSection } from "@/sections/HeroSection";
 import { AboutSection } from "@/sections/AboutSection";
 import { SkillsSection } from "@/sections/SkillsSection";
@@ -16,17 +15,14 @@ import { FooterSection } from "@/sections/FooterSection";
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen bg-bg-main text-text-primary selection:bg-brand-indigo/30 selection:text-text-primary">
+    <main className="relative min-h-screen bg-black text-white selection:bg-white selection:text-black">
       {/* Scroll Reading Progress Bar at the top */}
       <ScrollProgressBar />
 
-      {/* Desktop Precision Custom Cursor */}
-      <CustomCursor />
-
-      {/* Sticky Premium Navigation */}
+      {/* Sticky Premium Navigation with modern 'H' brand logo */}
       <Navbar />
 
-      {/* Section 01: Immersive Hero Section */}
+      {/* Section 01: Immersive Hero Section with circular white-bg photo (no text overlay) */}
       <HeroSection />
 
       {/* Section 02: About Me */}
@@ -35,7 +31,7 @@ export default function Home() {
       {/* Section 03: Technical Skills & Expertise */}
       <SkillsSection />
 
-      {/* Section 04: Selected Projects Showcase */}
+      {/* Section 04: Selected Projects Showcase with Related Visual Images */}
       <ProjectsSection />
 
       {/* Section 05: Academic Journey / Education */}

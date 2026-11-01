@@ -14,7 +14,7 @@ export function AchievementsSection() {
   };
 
   return (
-    <section id="achievements" className="py-20 lg:py-28 relative">
+    <section id="achievements" className="py-20 lg:py-28 relative bg-black border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           badge="HONORS & RECOGNITION"
@@ -33,8 +33,8 @@ export function AchievementsSection() {
                 key={award.id}
                 className={`p-6 rounded-3xl border transition-all duration-300 flex flex-col justify-between group ${
                   isBestPerformer
-                    ? "bg-gradient-to-b from-brand-indigo/15 to-bg-card border-brand-indigo/40 shadow-indigo-glow"
-                    : "bg-bg-card border-border-subtle hover:border-brand-violet/40"
+                    ? "bg-zinc-900 border-white/40 shadow-[0_10px_30px_rgba(255,255,255,0.06)]"
+                    : "bg-zinc-950 border-white/10 hover:border-white/30"
                 }`}
               >
                 <div>
@@ -42,38 +42,38 @@ export function AchievementsSection() {
                     <div
                       className={`w-11 h-11 rounded-2xl flex items-center justify-center transition-transform group-hover:scale-105 ${
                         isBestPerformer
-                          ? "bg-amber-400/20 text-amber-300 border border-amber-400/30"
-                          : "bg-brand-indigo/15 text-brand-cyan border border-brand-indigo/30"
+                          ? "bg-white text-black"
+                          : "bg-white/10 text-white border border-white/10"
                       }`}
                     >
                       <Icon className="w-5 h-5" />
                     </div>
                     {award.year ? (
-                      <span className="text-xs font-mono font-bold px-2.5 py-0.5 rounded-full bg-brand-indigo/20 text-brand-cyan border border-brand-indigo/30">
+                      <span className="text-xs font-mono font-bold px-2.5 py-0.5 rounded-full bg-white/10 text-white border border-white/20">
                         {award.year}
                       </span>
                     ) : (
-                      <span className="text-[10px] font-mono uppercase text-brand-violet px-2 py-0.5 rounded bg-bg-elevated border border-white/5">
+                      <span className="text-[10px] font-mono uppercase text-zinc-500 px-2 py-0.5 rounded bg-zinc-900 border border-white/5">
                         Award
                       </span>
                     )}
                   </div>
 
-                  <span className="text-[10px] font-mono tracking-wider uppercase text-text-muted">
+                  <span className="text-[10px] font-mono tracking-wider uppercase text-zinc-500">
                     {award.category}
                   </span>
 
-                  <h3 className="text-lg font-extrabold text-text-primary mt-1 group-hover:text-white transition-colors">
+                  <h3 className="text-lg font-extrabold text-white mt-1 group-hover:text-zinc-200 transition-colors">
                     {award.title}
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-text-secondary mt-2.5 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-zinc-400 mt-2.5 leading-relaxed">
                     {award.description}
                   </p>
                 </div>
 
-                <div className="mt-6 pt-3 border-t border-border-subtle flex items-center gap-1.5 text-[11px] font-mono text-brand-cyan">
-                  <Sparkles className="w-3.5 h-3.5" />
+                <div className="mt-6 pt-3 border-t border-white/10 flex items-center gap-1.5 text-[11px] font-mono text-zinc-400">
+                  <Sparkles className="w-3.5 h-3.5 text-white" />
                   <span>Resume Documented Honor</span>
                 </div>
               </div>
