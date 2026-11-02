@@ -19,19 +19,19 @@ export default function Home() {
       {/* Scroll Reading Progress Bar */}
       <ScrollProgressBar />
 
-      {/* Sticky Premium Navigation with modern 'H' brand logo */}
+      {/* Static Fixed Top Navigation with modern 'H' brand logo */}
       <Navbar />
 
-      {/* Section 01: Hero with new circular white-bg photo & 3D Computer Science Interactive Core */}
+      {/* Section 01: Hero with circular profile photo & effective border */}
       <HeroSection />
 
-      {/* Section 02: About Me with Computer Engineering Imagery (Exploded hardware, AI robotic hand, orchestration) */}
+      {/* Section 02: About Me with structured engineering domains and academic profile */}
       <AboutSection />
 
       {/* Section 03: Technical Skills & Expertise */}
       <SkillsSection />
 
-      {/* Section 04: Selected Projects Showcase with Related Visual Images & Interactive Pipeline */}
+      {/* Section 04: Selected Projects Showcase with Interactive Pipeline */}
       <ProjectsSection />
 
       {/* Section 05: Academic Journey / Education */}
@@ -52,7 +52,7 @@ export default function Home() {
       {/* Section 10: Contact & Collaboration */}
       <ContactSection />
 
-      {/* Section 11: Premium Footer */}
+      {/* Section 11: Footer */}
       <FooterSection />
     </main>
   );

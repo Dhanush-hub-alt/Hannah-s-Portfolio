@@ -4,94 +4,48 @@ import React from "react";
 import { useTheme } from "@/context/ThemeContext";
 
 interface BrandLogoProps {
-  className?: string;
-  size?: number;
+ className?: string;
+ size?: number;
 }
 
-export function BrandLogo({ className = "", size = 44 }: BrandLogoProps) {
-  const { theme } = useTheme();
-  const isDark = theme === "dark";
+export function BrandLogo({ className = "", size = 42 }: BrandLogoProps) {
+ const { theme } = useTheme();
+ const isDark = theme === "dark";
 
-  // Dynamic colors based on application theme
-  const primaryColor = isDark ? "#60A5FA" : "#2563EB"; // Electric Blue
-  const secondaryColor = isDark ? "#38BDF8" : "#0F172A"; // Cyan in dark, Navy in light
-  const accentLight = isDark ? "#F8FAFC" : "#38BDF8";
-
-  return (
-    <div
-      className={`relative flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-105 ${className}`}
-      style={{ width: size, height: size }}
-    >
-      <svg
-        viewBox="0 0 100 100"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="w-full h-full drop-shadow-sm"
-      >
-        <defs>
-          <linearGradient id="hLeftPillar" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor={primaryColor} />
-            <stop offset="100%" stopColor={secondaryColor} />
-          </linearGradient>
-          <linearGradient id="hRightPillar" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor={secondaryColor} />
-            <stop offset="100%" stopColor={primaryColor} />
-          </linearGradient>
-          <linearGradient id="hCrossbar" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor={primaryColor} />
-            <stop offset="50%" stopColor={accentLight} />
-            <stop offset="100%" stopColor={secondaryColor} />
-          </linearGradient>
-        </defs>
-
-        {/* Left Futuristic Angled Pillar */}
-        <path
-          d="M18 10L32 10L32 60L25 66L18 60L18 10Z"
-          fill="url(#hLeftPillar)"
-        />
-        <path
-          d="M18 60L25 66L25 90L18 84L18 60Z"
-          fill={primaryColor}
-          opacity="0.9"
-        />
-        <path
-          d="M25 66L32 60L32 84L25 90L25 66Z"
-          fill={secondaryColor}
-        />
-
-        {/* Right Futuristic Angled Pillar */}
-        <path
-          d="M68 40L75 34L82 40L82 90L68 90L68 40Z"
-          fill="url(#hRightPillar)"
-        />
-        <path
-          d="M68 16L75 10L75 34L68 40L68 16Z"
-          fill={primaryColor}
-        />
-        <path
-          d="M75 10L82 16L82 40L75 34L75 10Z"
-          fill={secondaryColor}
-          opacity="0.85"
-        />
-
-        {/* Intersecting Cybernetic Cross Bridge */}
-        <path
-          d="M32 44L68 44L62 56L26 56L32 44Z"
-          fill="url(#hCrossbar)"
-        />
-
-        {/* Geometric High-Tech Nano Notches */}
-        <path
-          d="M32 20L44 20L38 28L32 28L32 20Z"
-          fill={accentLight}
-          opacity="0.8"
-        />
-        <path
-          d="M68 80L56 80L62 72L68 72L68 80Z"
-          fill={accentLight}
-          opacity="0.8"
-        />
-      </svg>
-    </div>
-  );
+ return (
+ <div
+ className={`relative flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-105 ${className}`}
+ style={{ width: size, height: size }}
+ >
+ <svg
+ viewBox="0 0 100 100"
+ fill="currentColor"
+ xmlns="http://www.w3.org/2000/svg"
+ className={`w-full h-full transition-colors duration-300 ${
+ isDark ? "text-[#60A5FA] group-hover:text-[#38BDF8]" : "text-[#0F172A] group-hover:text-[#2563EB]"
+ }`}
+ >
+ {/* Right Lower Vertical Pillar */}
+ <path
+ d="M 69.37 41.70 L 67.99 41.70 L 67.71 41.97 L 67.43 41.97 L 66.60 42.81 L 65.22 42.81 L 64.94 43.08 L 64.67 43.08 L 63.28 43.91 L 62.73 43.91 L 60.79 45.02 L 60.24 45.02 L 59.96 45.30 L 59.41 45.30 L 58.86 45.85 L 58.86 46.40 L 58.58 46.68 L 58.58 47.23 L 58.86 47.51 L 58.86 48.89 L 58.58 49.17 L 58.58 49.45 L 58.86 49.72 L 58.86 69.65 L 58.58 69.92 L 58.58 70.20 L 58.86 70.48 L 58.86 73.52 L 58.58 73.80 L 58.58 74.63 L 58.86 74.91 L 58.86 75.18 L 59.41 75.74 L 69.09 75.74 L 69.92 74.91 L 69.92 42.25 Z"
+ fillRule="evenodd"
+ />
+ {/* Sweeping Dynamic Swoosh and Angular Hook */}
+ <path
+ d="M 91.79 33.40 L 85.97 32.84 L 67.99 35.06 L 59.96 37.27 L 58.30 37.27 L 47.79 40.59 L 34.23 46.40 L 24.54 51.66 L 8.49 62.73 L 7.94 64.67 L 30.35 93.45 L 40.31 93.72 L 41.14 92.89 L 41.14 57.47 L 39.76 57.19 L 30.35 65.50 L 29.80 74.63 L 24.54 68.26 L 24.54 67.43 L 37.55 55.53 L 47.23 48.89 L 54.98 44.47 L 68.82 38.65 L 70.20 38.65 L 76.29 36.44 L 79.33 36.16 L 79.89 35.61 L 84.59 35.33 L 91.23 33.95 Z"
+ fillRule="evenodd"
+ />
+ {/* Left Upper Vertical Stem */}
+ <path
+ d="M 40.59 20.67 L 40.04 20.67 L 39.21 21.50 L 38.93 21.50 L 38.65 21.77 L 38.10 21.77 L 37.82 22.05 L 37.55 22.05 L 36.99 22.60 L 36.72 22.60 L 36.44 22.88 L 36.16 22.88 L 35.89 23.16 L 35.61 23.16 L 35.06 23.71 L 34.50 23.71 L 34.23 23.99 L 33.67 23.99 L 33.12 24.54 L 32.84 24.54 L 32.29 25.09 L 31.74 25.09 L 31.46 25.37 L 31.18 25.37 L 30.08 26.48 L 30.08 44.74 L 30.91 45.30 L 31.18 45.30 L 31.46 45.02 L 32.01 45.02 L 32.84 44.19 L 33.67 44.19 L 34.23 43.64 L 34.50 43.64 L 35.06 43.08 L 35.89 43.08 L 37.55 41.97 L 38.10 41.97 L 38.38 41.70 L 38.93 41.70 L 39.48 41.14 L 39.76 41.14 L 40.04 40.87 L 40.59 40.87 L 41.14 40.31 L 41.14 21.22 Z"
+ fillRule="evenodd"
+ />
+ {/* Right Upper Vertical Stem */}
+ <path
+ d="M 69.37 6.00 L 68.26 6.00 L 67.99 6.28 L 67.43 6.28 L 67.43 6.55 L 66.88 7.11 L 66.60 7.11 L 66.33 7.38 L 65.77 7.38 L 65.50 7.66 L 65.22 7.66 L 64.67 8.21 L 63.01 8.77 L 62.45 9.32 L 62.18 9.32 L 61.90 9.60 L 61.62 9.60 L 61.35 9.87 L 60.52 10.15 L 59.96 10.70 L 59.41 10.70 L 58.86 11.26 L 58.86 14.03 L 58.58 14.30 L 58.58 15.41 L 58.86 15.69 L 58.86 32.84 L 58.58 33.12 L 58.86 33.40 L 58.86 33.95 L 59.13 34.23 L 61.62 34.23 L 61.90 33.95 L 62.45 33.95 L 62.73 33.67 L 63.56 33.67 L 63.84 33.40 L 64.39 33.40 L 64.67 33.12 L 66.60 33.12 L 66.88 32.84 L 67.99 32.84 L 68.26 32.57 L 69.09 32.57 L 69.65 32.01 L 69.65 31.74 L 69.92 31.46 L 69.92 6.55 Z"
+ fillRule="evenodd"
+ />
+ </svg>
+ </div>
+ );
 }

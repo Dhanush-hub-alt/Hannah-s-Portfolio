@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -47,12 +47,12 @@
 
 * {
   box-sizing: border-box;
+  font-family: 'Sora', sans-serif !important;
 }
 
 html {
   scroll-behavior: smooth;
-  font-family: 'Sora', 'Inter', system-ui, -apple-system, sans-serif;
-  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  font-family: 'Sora', sans-serif !important;
 }
 
 body {
@@ -61,7 +61,7 @@ body {
   overflow-x: hidden;
   min-height: 100vh;
   position: relative;
-  font-family: 'Sora', 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: 'Sora', sans-serif !important;
   transition: background-color 0.25s ease, color 0.25s ease;
 }
 
@@ -87,20 +87,6 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--accent-app);
-}
-
-/* Subtle Technical Grid Pattern */
-.bg-grid-pattern {
-  background-size: 44px 44px;
-  background-image: 
-    linear-gradient(to right, rgba(96, 165, 250, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(96, 165, 250, 0.05) 1px, transparent 1px);
-}
-
-.light .bg-grid-pattern, [data-theme="light"] .bg-grid-pattern {
-  background-image: 
-    linear-gradient(to right, rgba(37, 99, 235, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(37, 99, 235, 0.05) 1px, transparent 1px);
 }
 
 @media (prefers-reduced-motion: reduce) {

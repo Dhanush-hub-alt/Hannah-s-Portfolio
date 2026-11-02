@@ -34,12 +34,13 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ["Sora", "Inter", "system-ui", "-apple-system", "sans-serif"],
-        display: ["Sora", "Inter", "system-ui", "-apple-system", "sans-serif"],
+        sans: ["Sora", "sans-serif"],
+        display: ["Sora", "sans-serif"],
+        mono: ["Sora", "sans-serif"],
       },
       boxShadow: {
-        subtle: "0 4px 20px -2px rgba(15, 23, 42, 0.08)",
-        card: "0 10px 30px -5px rgba(11, 17, 32, 0.15)",
+        subtle: "0 2px 10px rgba(0, 0, 0, 0.05)",
+        card: "0 4px 20px rgba(0, 0, 0, 0.08)",
       },
     },
   },
