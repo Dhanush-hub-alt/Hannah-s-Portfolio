@@ -12,7 +12,6 @@ import {
   Send,
   CheckCircle2,
   Copy,
-  AlertCircle,
 } from "lucide-react";
 
 export function ContactSection() {
@@ -61,38 +60,34 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-20 lg:py-28 relative bg-[#000000] border-t border-[#00EA64]/20">
+    <section id="contact" className="py-20 lg:py-24 relative bg-theme-bg border-t border-theme-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeader
-          badge="GET IN TOUCH"
-          title="Have an Idea?"
-          highlight="Let's Build Something Meaningful."
-          description="Whether you have an internship opportunity, a project collaboration, or want to discuss embedded AI and computer science, my inbox is always open."
-        />
+        {/* Exact Section Title Centered Matching Navbar */}
+        <SectionHeader title="Contact" />
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mt-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* Left Column: Direct Communication Channels (5 cols) */}
-          <div className="lg:col-span-5 space-y-6">
-            <div className="p-6 rounded-3xl bg-black border border-[#00EA64]/20 space-y-5">
-              <h3 className="text-lg font-bold text-white">
-                Direct Contact Channels
+          <div className="lg:col-span-5 space-y-5">
+            <div className="p-6 rounded-3xl bg-theme-surface border border-theme-border space-y-4 shadow-sm">
+              <h3 className="text-lg font-bold text-theme-primary font-display">
+                Direct Channels
               </h3>
-              <p className="text-sm text-slate-300 leading-relaxed">
-                Reach out directly via email or phone. I prioritize inquiries regarding academic projects, engineering roles, and technical collaborations.
+              <p className="text-sm text-theme-secondary leading-relaxed">
+                Reach out directly via email or phone for academic projects, engineering roles, and technical collaborations.
               </p>
 
               {/* Email Card */}
-              <div className="p-4 rounded-2xl bg-black border border-[#00EA64]/20 flex items-center justify-between">
+              <div className="p-4 rounded-2xl bg-theme-surfaceSecondary border border-theme-border flex items-center justify-between">
                 <div className="flex items-center gap-3 min-w-0">
-                  <div className="w-10 h-10 rounded-xl bg-black border border-[#00EA64]/30 text-[#00EA64] flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-xl bg-theme-surface border border-theme-border text-theme-accent flex items-center justify-center shrink-0">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div className="min-w-0">
-                    <span className="text-[10px] font-mono uppercase text-[#00EA64] font-bold">Email</span>
+                    <span className="text-[10px] font-mono uppercase text-theme-accent font-bold">Email</span>
                     <a
                       href={`mailto:${personalInfo.email}`}
-                      className="block text-sm font-semibold text-white hover:text-[#00EA64] transition-colors truncate"
+                      className="block text-sm font-semibold text-theme-primary hover:text-theme-accent transition-colors truncate"
                     >
                       {personalInfo.email}
                     </a>
@@ -100,11 +95,11 @@ export function ContactSection() {
                 </div>
                 <button
                   onClick={() => handleCopy(personalInfo.email, "email")}
-                  className="p-2 rounded-lg bg-black border border-[#00EA64]/20 text-slate-300 hover:text-[#00EA64] transition-colors"
+                  className="p-2 rounded-lg bg-theme-surface border border-theme-border text-theme-muted hover:text-theme-accent transition-colors"
                   title="Copy Email"
                 >
                   {copiedType === "email" ? (
-                    <CheckCircle2 className="w-4 h-4 text-[#00EA64]" />
+                    <CheckCircle2 className="w-4 h-4 text-theme-accent" />
                   ) : (
                     <Copy className="w-4 h-4" />
                   )}
@@ -112,16 +107,16 @@ export function ContactSection() {
               </div>
 
               {/* Phone Card */}
-              <div className="p-4 rounded-2xl bg-black border border-[#00EA64]/20 flex items-center justify-between">
+              <div className="p-4 rounded-2xl bg-theme-surfaceSecondary border border-theme-border flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-black border border-[#00EA64]/30 text-[#00EA64] flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-xl bg-theme-surface border border-theme-border text-theme-accent flex items-center justify-center shrink-0">
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-[10px] font-mono uppercase text-[#00EA64] font-bold">Phone</span>
+                    <span className="text-[10px] font-mono uppercase text-theme-accent font-bold">Phone</span>
                     <a
                       href={`tel:${personalInfo.phone.replace(/\s+/g, "")}`}
-                      className="block text-sm font-semibold text-white hover:text-[#00EA64] transition-colors"
+                      className="block text-sm font-semibold text-theme-primary hover:text-theme-accent transition-colors"
                     >
                       {personalInfo.phone}
                     </a>
@@ -129,11 +124,11 @@ export function ContactSection() {
                 </div>
                 <button
                   onClick={() => handleCopy(personalInfo.phone, "phone")}
-                  className="p-2 rounded-lg bg-black border border-[#00EA64]/20 text-slate-300 hover:text-[#00EA64] transition-colors"
+                  className="p-2 rounded-lg bg-theme-surface border border-theme-border text-theme-muted hover:text-theme-accent transition-colors"
                   title="Copy Phone"
                 >
                   {copiedType === "phone" ? (
-                    <CheckCircle2 className="w-4 h-4 text-[#00EA64]" />
+                    <CheckCircle2 className="w-4 h-4 text-theme-accent" />
                   ) : (
                     <Copy className="w-4 h-4" />
                   )}
@@ -141,30 +136,30 @@ export function ContactSection() {
               </div>
 
               {/* Location Card */}
-              <div className="p-4 rounded-2xl bg-black border border-[#00EA64]/20 flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-black border border-[#00EA64]/30 text-[#00EA64] flex items-center justify-center shrink-0">
+              <div className="p-4 rounded-2xl bg-theme-surfaceSecondary border border-theme-border flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-theme-surface border border-theme-border text-theme-accent flex items-center justify-center shrink-0">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="text-[10px] font-mono uppercase text-[#00EA64] font-bold">Location</span>
-                  <div className="text-sm font-semibold text-white">
+                  <span className="text-[10px] font-mono uppercase text-theme-accent font-bold">Location</span>
+                  <div className="text-sm font-semibold text-theme-primary">
                     {personalInfo.location}
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Social Links Box */}
-            <div className="p-5 rounded-3xl bg-black border border-[#00EA64]/20 flex items-center justify-between">
-              <span className="text-xs font-mono uppercase tracking-wider text-slate-400">
+            {/* Social Links */}
+            <div className="p-5 rounded-3xl bg-theme-surface border border-theme-border flex items-center justify-between shadow-sm">
+              <span className="text-xs font-mono uppercase tracking-wider text-theme-muted font-bold">
                 Professional Networks
               </span>
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2.5">
                 <a
                   href={personalInfo.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-xl bg-black border border-[#00EA64]/20 text-slate-300 hover:text-[#00EA64] hover:border-[#00EA64] transition-all"
+                  className="p-2.5 rounded-xl bg-theme-surfaceSecondary border border-theme-border text-theme-secondary hover:text-theme-accent hover:border-theme-accent transition-all"
                   aria-label="Hannah K LinkedIn"
                 >
                   <Linkedin className="w-4 h-4" />
@@ -173,7 +168,7 @@ export function ContactSection() {
                   href={personalInfo.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-xl bg-black border border-[#00EA64]/20 text-slate-300 hover:text-[#00EA64] hover:border-[#00EA64] transition-all"
+                  className="p-2.5 rounded-xl bg-theme-surfaceSecondary border border-theme-border text-theme-secondary hover:text-theme-accent hover:border-theme-accent transition-all"
                   aria-label="Hannah K GitHub"
                 >
                   <Github className="w-4 h-4" />
@@ -182,22 +177,22 @@ export function ContactSection() {
             </div>
           </div>
 
-          {/* Right Column: Contact Message Form (7 cols) */}
+          {/* Right Column: Contact Form (7 cols) */}
           <div className="lg:col-span-7">
-            <div className="p-6 sm:p-8 rounded-3xl bg-black border border-[#00EA64]/20">
-              <h3 className="text-xl font-bold text-white">
+            <div className="p-6 sm:p-8 rounded-3xl bg-theme-surface border border-theme-border shadow-sm">
+              <h3 className="text-xl font-bold text-theme-primary font-display">
                 Send a Message
               </h3>
-              <p className="text-xs sm:text-sm text-slate-300 mt-1">
-                Fill in the details below. This form initiates a direct email dispatch to Hannah&apos;s verified inbox.
+              <p className="text-xs sm:text-sm text-theme-secondary mt-1">
+                Initiate a direct email dispatch to Hannah&apos;s verified inbox.
               </p>
 
               <form onSubmit={handleSubmit} className="mt-6 space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {/* Name Input */}
                   <div>
-                    <label className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1.5 font-mono">
-                      Your Name <span className="text-[#00EA64]">*</span>
+                    <label className="block text-xs font-semibold uppercase tracking-wider text-theme-secondary mb-1.5 font-mono">
+                      Your Name <span className="text-theme-accent">*</span>
                     </label>
                     <input
                       type="text"
@@ -206,14 +201,14 @@ export function ContactSection() {
                         setFormData({ ...formData, name: e.target.value })
                       }
                       placeholder="e.g. Priya Sharma"
-                      className={`w-full px-4 py-3 rounded-xl bg-black border text-sm text-white placeholder:text-slate-500 focus:outline-none transition-colors ${
+                      className={`w-full px-4 py-3 rounded-xl bg-theme-surfaceSecondary border text-sm text-theme-primary placeholder:text-theme-muted focus:outline-none transition-colors ${
                         formErrors.name
                           ? "border-red-500 focus:border-red-400"
-                          : "border-[#00EA64]/20 focus:border-[#00EA64]"
+                          : "border-theme-border focus:border-theme-accent"
                       }`}
                     />
                     {formErrors.name && (
-                      <span className="text-[11px] text-red-400 mt-1 block">
+                      <span className="text-[11px] text-red-500 mt-1 block">
                         {formErrors.name}
                       </span>
                     )}
@@ -221,8 +216,8 @@ export function ContactSection() {
 
                   {/* Email Input */}
                   <div>
-                    <label className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1.5 font-mono">
-                      Your Email <span className="text-[#00EA64]">*</span>
+                    <label className="block text-xs font-semibold uppercase tracking-wider text-theme-secondary mb-1.5 font-mono">
+                      Your Email <span className="text-theme-accent">*</span>
                     </label>
                     <input
                       type="email"
@@ -231,14 +226,14 @@ export function ContactSection() {
                         setFormData({ ...formData, email: e.target.value })
                       }
                       placeholder="e.g. priya@domain.com"
-                      className={`w-full px-4 py-3 rounded-xl bg-black border text-sm text-white placeholder:text-slate-500 focus:outline-none transition-colors ${
+                      className={`w-full px-4 py-3 rounded-xl bg-theme-surfaceSecondary border text-sm text-theme-primary placeholder:text-theme-muted focus:outline-none transition-colors ${
                         formErrors.email
                           ? "border-red-500 focus:border-red-400"
-                          : "border-[#00EA64]/20 focus:border-[#00EA64]"
+                          : "border-theme-border focus:border-theme-accent"
                       }`}
                     />
                     {formErrors.email && (
-                      <span className="text-[11px] text-red-400 mt-1 block">
+                      <span className="text-[11px] text-red-500 mt-1 block">
                         {formErrors.email}
                       </span>
                     )}
@@ -247,8 +242,8 @@ export function ContactSection() {
 
                 {/* Subject Input */}
                 <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1.5 font-mono">
-                    Subject <span className="text-[#00EA64]">*</span>
+                  <label className="block text-xs font-semibold uppercase tracking-wider text-theme-secondary mb-1.5 font-mono">
+                    Subject <span className="text-theme-accent">*</span>
                   </label>
                   <input
                     type="text"
@@ -256,15 +251,15 @@ export function ContactSection() {
                     onChange={(e) =>
                       setFormData({ ...formData, subject: e.target.value })
                     }
-                    placeholder="e.g. Inquiry regarding Vehicle AI Project / Internship"
-                    className={`w-full px-4 py-3 rounded-xl bg-black border text-sm text-white placeholder:text-slate-500 focus:outline-none transition-colors ${
+                    placeholder="e.g. Inquiry regarding Project Collaboration / Internship"
+                    className={`w-full px-4 py-3 rounded-xl bg-theme-surfaceSecondary border text-sm text-theme-primary placeholder:text-theme-muted focus:outline-none transition-colors ${
                       formErrors.subject
                         ? "border-red-500 focus:border-red-400"
-                        : "border-[#00EA64]/20 focus:border-[#00EA64]"
+                        : "border-theme-border focus:border-theme-accent"
                     }`}
                   />
                   {formErrors.subject && (
-                    <span className="text-[11px] text-red-400 mt-1 block">
+                    <span className="text-[11px] text-red-500 mt-1 block">
                       {formErrors.subject}
                     </span>
                   )}
@@ -272,8 +267,8 @@ export function ContactSection() {
 
                 {/* Message Input */}
                 <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1.5 font-mono">
-                    Message <span className="text-[#00EA64]">*</span>
+                  <label className="block text-xs font-semibold uppercase tracking-wider text-theme-secondary mb-1.5 font-mono">
+                    Message <span className="text-theme-accent">*</span>
                   </label>
                   <textarea
                     rows={4}
@@ -282,14 +277,14 @@ export function ContactSection() {
                       setFormData({ ...formData, message: e.target.value })
                     }
                     placeholder="Write your message here..."
-                    className={`w-full px-4 py-3 rounded-xl bg-black border text-sm text-white placeholder:text-slate-500 focus:outline-none transition-colors resize-none ${
+                    className={`w-full px-4 py-3 rounded-xl bg-theme-surfaceSecondary border text-sm text-theme-primary placeholder:text-theme-muted focus:outline-none transition-colors resize-none ${
                       formErrors.message
                         ? "border-red-500 focus:border-red-400"
-                        : "border-[#00EA64]/20 focus:border-[#00EA64]"
+                        : "border-theme-border focus:border-theme-accent"
                     }`}
                   />
                   {formErrors.message && (
-                    <span className="text-[11px] text-red-400 mt-1 block">
+                    <span className="text-[11px] text-red-500 mt-1 block">
                       {formErrors.message}
                     </span>
                   )}
@@ -298,10 +293,10 @@ export function ContactSection() {
                 {/* Action Button */}
                 <button
                   type="submit"
-                  className="w-full py-3.5 rounded-xl font-bold text-sm text-[#000000] bg-[#00EA64] hover:bg-[#10E56A] transition-all flex items-center justify-center gap-2 active:scale-98"
+                  className="w-full py-3.5 rounded-xl font-bold text-sm text-white bg-theme-accent hover:bg-theme-accentHover transition-all flex items-center justify-center gap-2 active:scale-98 shadow-sm"
                 >
                   <Send className="w-4 h-4" />
-                  <span>Send Message via Email Client</span>
+                  <span>Send Message</span>
                 </button>
               </form>
             </div>

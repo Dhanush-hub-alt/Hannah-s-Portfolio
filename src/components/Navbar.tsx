@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { personalInfo } from "@/data/portfolio";
 import { BrandLogo } from "@/components/BrandLogo";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import {
   Home,
   User,
@@ -12,13 +13,13 @@ import {
   Award,
   Cpu,
   Trophy,
+  Languages,
   Mail,
   Menu,
   X,
-  ArrowUpRight,
-  MessageSquare,
   Github,
   Linkedin,
+  MessageSquare,
 } from "lucide-react";
 
 export function Navbar() {
@@ -37,33 +38,29 @@ export function Navbar() {
     { name: "Certifications", href: "#certifications", icon: Award },
     { name: "Training", href: "#training", icon: Cpu },
     { name: "Achievements", href: "#achievements", icon: Trophy },
+    { name: "Languages", href: "#languages", icon: Languages },
     { name: "Contact", href: "#contact", icon: Mail },
   ];
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-
-      // Determine background state
       setIsScrolled(currentScrollY > 20);
 
-      // Dynamic smart hide/reveal on scroll: navbar is not static while scrolling
+      // Smart hide on scroll down, show on scroll up
       if (currentScrollY > 80) {
         if (currentScrollY > lastScrollY && !mobileMenuOpen) {
-          // Scrolling down -> hide navbar
           setIsVisible(false);
         } else {
-          // Scrolling up -> show navbar
           setIsVisible(true);
         }
       } else {
-        // Near top -> always visible
         setIsVisible(true);
       }
 
       setLastScrollY(currentScrollY);
 
-      // Active section highlight tracking
+      // Track active section
       const sections = navItems.map((link) => link.href.replace("#", ""));
       const currentPos = currentScrollY + 220;
 
@@ -87,26 +84,26 @@ export function Navbar() {
           isVisible ? "translate-y-0" : "-translate-y-full"
         } ${
           isScrolled
-            ? "py-2.5 bg-black/95 backdrop-blur-md shadow-2xl"
+            ? "py-2.5 bg-theme-bg/90 backdrop-blur-md shadow-subtle border-b border-theme-border/60"
             : "py-4 bg-transparent"
         }`}
       >
         <div className="w-full px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           
-          {/* Top Most Left Corner: Logo & Enlarged Title "Hannah K" (No B.E subtitle, No circle border) */}
+          {/* Top Most Left: Logo + Title "Hannah K" */}
           <a
             href="#home"
             className="flex items-center gap-3 group focus:outline-none shrink-0"
             aria-label="Hannah K Home"
           >
-            <BrandLogo size={46} />
-            <span className="font-extrabold text-xl sm:text-2xl text-white tracking-tight group-hover:text-[#00EA64] transition-colors">
-              Hannah <span className="text-[#00EA64]">K</span>
+            <BrandLogo size={42} />
+            <span className="font-extrabold text-xl sm:text-2xl text-theme-primary tracking-tight font-display group-hover:text-theme-accent transition-colors">
+              Hannah <span className="text-theme-accent">K</span>
             </span>
           </a>
 
-          {/* Center Navigation Links: Individual Icons, Hover Underline, No Border */}
-          <nav className="hidden 2xl:flex items-center gap-1 bg-black/95 rounded-full px-5 py-2 border-none">
+          {/* Center Navigation Links: Icons + Exact Labels */}
+          <nav className="hidden 2xl:flex items-center gap-1 bg-theme-surface/80 backdrop-blur-md rounded-full px-4 py-1.5 border border-theme-border/70 shadow-sm">
             {navItems.map((item) => {
               const Icon = item.icon;
               const isActive = activeSection === item.href.replace("#", "");
@@ -115,25 +112,24 @@ export function Navbar() {
                 <a
                   key={item.name}
                   href={item.href}
-                  className={`group relative flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg transition-all duration-200 ${
+                  className={`group relative flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-full transition-all duration-200 ${
                     isActive
-                      ? "text-[#00EA64]"
-                      : "text-slate-300 hover:text-white"
+                      ? "text-theme-accent bg-theme-surfaceSecondary font-bold"
+                      : "text-theme-secondary hover:text-theme-primary hover:bg-theme-surfaceSecondary/60"
                   }`}
                 >
-                  {/* Hovering / Animating Icon */}
                   <Icon
-                    className={`w-3.5 h-3.5 transition-all duration-200 group-hover:-translate-y-0.5 group-hover:scale-110 ${
+                    className={`w-3.5 h-3.5 transition-all duration-200 group-hover:-translate-y-0.5 ${
                       isActive
-                        ? "text-[#00EA64]"
-                        : "text-slate-400 group-hover:text-[#00EA64]"
+                        ? "text-theme-accent"
+                        : "text-theme-muted group-hover:text-theme-accent"
                     }`}
                   />
                   <span>{item.name}</span>
 
-                  {/* Animated Hover Line Underneath the Navbar Item */}
+                  {/* Underline indicator */}
                   <span
-                    className={`absolute bottom-0 left-2 right-2 h-[2px] bg-[#00EA64] rounded-full transition-all duration-300 origin-left ${
+                    className={`absolute bottom-0.5 left-3 right-3 h-[2px] bg-theme-accent rounded-full transition-all duration-300 origin-left ${
                       isActive
                         ? "scale-x-100 opacity-100"
                         : "scale-x-0 opacity-0 group-hover:scale-x-100 group-hover:opacity-100"
@@ -144,59 +140,59 @@ export function Navbar() {
             })}
           </nav>
 
-          {/* Top Most Right Corner: GitHub, LinkedIn, Mail & Contact Buttons */}
-          <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
-            {/* GitHub Button */}
+          {/* Top Most Right: Icon-only Navigation (GitHub, LinkedIn, Mail, Contact, ThemeToggle) */}
+          <div className="flex items-center gap-2 shrink-0">
+            {/* GitHub Icon Only */}
             <a
               href={personalInfo.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 sm:px-3 sm:py-1.5 rounded-full bg-black border border-[#00EA64]/40 text-slate-200 hover:text-[#00EA64] hover:border-[#00EA64] transition-all flex items-center gap-1.5 text-xs font-semibold active:scale-95"
+              className="p-2 sm:p-2.5 rounded-full bg-theme-surface border border-theme-border text-theme-secondary hover:text-theme-accent hover:border-theme-accent transition-all flex items-center justify-center active:scale-95 shadow-sm"
               aria-label="GitHub Profile"
               title="GitHub"
             >
-              <Github className="w-3.5 h-3.5 text-[#00EA64]" />
-              <span className="hidden xl:inline">GitHub</span>
+              <Github className="w-4 h-4" />
             </a>
 
-            {/* LinkedIn Button */}
+            {/* LinkedIn Icon Only */}
             <a
               href={personalInfo.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 sm:px-3 sm:py-1.5 rounded-full bg-black border border-[#00EA64]/40 text-slate-200 hover:text-[#00EA64] hover:border-[#00EA64] transition-all flex items-center gap-1.5 text-xs font-semibold active:scale-95"
+              className="p-2 sm:p-2.5 rounded-full bg-theme-surface border border-theme-border text-theme-secondary hover:text-theme-accent hover:border-theme-accent transition-all flex items-center justify-center active:scale-95 shadow-sm"
               aria-label="LinkedIn Profile"
               title="LinkedIn"
             >
-              <Linkedin className="w-3.5 h-3.5 text-[#00EA64]" />
-              <span className="hidden xl:inline">LinkedIn</span>
+              <Linkedin className="w-4 h-4" />
             </a>
 
-            {/* Mail Button */}
+            {/* Mail Icon Only */}
             <a
               href={`mailto:${personalInfo.email}`}
-              className="p-2 sm:px-3 sm:py-1.5 rounded-full bg-black border border-[#00EA64]/40 text-slate-200 hover:text-[#00EA64] hover:border-[#00EA64] transition-all flex items-center gap-1.5 text-xs font-semibold active:scale-95"
+              className="p-2 sm:p-2.5 rounded-full bg-theme-surface border border-theme-border text-theme-secondary hover:text-theme-accent hover:border-theme-accent transition-all flex items-center justify-center active:scale-95 shadow-sm"
               aria-label="Send Email"
-              title="Mail"
+              title="Email"
             >
-              <Mail className="w-3.5 h-3.5 text-[#00EA64]" />
-              <span className="hidden xl:inline">Mail</span>
+              <Mail className="w-4 h-4" />
             </a>
 
-            {/* Contact Button */}
+            {/* Contact Icon Only */}
             <a
               href="#contact"
-              className="px-3 py-1.5 sm:px-4 sm:py-1.5 rounded-full text-xs font-bold text-black bg-[#00EA64] hover:bg-[#10E56A] transition-all flex items-center gap-1.5 active:scale-95 border-none shadow-btn"
-              title="Contact Section"
+              className="p-2 sm:p-2.5 rounded-full bg-theme-accent text-white hover:bg-theme-accentHover transition-all flex items-center justify-center active:scale-95 shadow-sm"
+              aria-label="Contact Section"
+              title="Contact Me"
             >
-              <MessageSquare className="w-3.5 h-3.5 text-black" />
-              <span>Contact</span>
+              <MessageSquare className="w-4 h-4" />
             </a>
 
-            {/* Mobile Hamburger Button */}
+            {/* Theme Toggle Button (Light/Dark Mode) */}
+            <ThemeToggle />
+
+            {/* Mobile Menu Hamburger */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="2xl:hidden p-2 rounded-full bg-black text-[#00EA64] border border-[#00EA64]/30 hover:bg-[#00EA64] hover:text-black transition-colors focus:outline-none"
+              className="2xl:hidden p-2 rounded-full bg-theme-surface text-theme-primary border border-theme-border hover:border-theme-accent transition-colors focus:outline-none"
               aria-label="Toggle Navigation Menu"
             >
               {mobileMenuOpen ? (
@@ -213,13 +209,13 @@ export function Navbar() {
       {mobileMenuOpen && (
         <div className="fixed inset-0 z-30 2xl:hidden">
           <div
-            className="fixed inset-0 bg-black/90 backdrop-blur-md"
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm"
             onClick={() => setMobileMenuOpen(false)}
           />
 
-          <div className="fixed top-20 right-4 left-4 max-h-[calc(100vh-6rem)] overflow-y-auto rounded-3xl bg-black p-6 shadow-2xl flex flex-col justify-between border border-[#00EA64]/30">
+          <div className="fixed top-20 right-4 left-4 max-h-[calc(100vh-6rem)] overflow-y-auto rounded-3xl bg-theme-surface p-6 shadow-2xl flex flex-col justify-between border border-theme-border">
             <div className="flex flex-col space-y-1">
-              <div className="text-xs font-mono uppercase tracking-wider text-[#00EA64] px-3 py-2 font-bold">
+              <div className="text-xs font-mono uppercase tracking-wider text-theme-accent px-3 py-2 font-bold">
                 Navigation
               </div>
               {navItems.map((item) => {
@@ -231,58 +227,50 @@ export function Navbar() {
                     key={item.name}
                     href={item.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className={`px-4 py-3 rounded-xl text-sm font-semibold flex items-center justify-between transition-all ${
+                    className={`px-4 py-3 rounded-2xl text-sm font-semibold flex items-center justify-between transition-all ${
                       isActive
-                        ? "bg-[#00EA64] text-black font-bold"
-                        : "text-slate-300 hover:text-white hover:bg-black/80"
+                        ? "bg-theme-accent text-white font-bold"
+                        : "text-theme-secondary hover:text-theme-primary hover:bg-theme-surfaceSecondary"
                     }`}
                   >
                     <div className="flex items-center gap-3">
                       <Icon className="w-4 h-4" />
                       <span>{item.name}</span>
                     </div>
-                    <ArrowUpRight className="w-4 h-4 opacity-60" />
                   </a>
                 );
               })}
             </div>
 
-            <div className="mt-6 pt-5 border-t border-[#00EA64]/20 flex flex-col gap-2.5">
-              <div className="grid grid-cols-3 gap-2">
+            <div className="mt-6 pt-5 border-t border-theme-border flex items-center justify-between">
+              <div className="flex items-center gap-3">
                 <a
                   href={personalInfo.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="py-2.5 rounded-xl bg-black border border-[#00EA64]/40 text-xs font-semibold text-center text-slate-200 hover:text-[#00EA64] flex items-center justify-center gap-1"
+                  className="p-2.5 rounded-full bg-theme-surfaceSecondary border border-theme-border text-theme-secondary hover:text-theme-accent"
+                  aria-label="GitHub"
                 >
-                  <Github className="w-3.5 h-3.5 text-[#00EA64]" />
-                  <span>GitHub</span>
+                  <Github className="w-4 h-4" />
                 </a>
                 <a
                   href={personalInfo.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="py-2.5 rounded-xl bg-black border border-[#00EA64]/40 text-xs font-semibold text-center text-slate-200 hover:text-[#00EA64] flex items-center justify-center gap-1"
+                  className="p-2.5 rounded-full bg-theme-surfaceSecondary border border-theme-border text-theme-secondary hover:text-theme-accent"
+                  aria-label="LinkedIn"
                 >
-                  <Linkedin className="w-3.5 h-3.5 text-[#00EA64]" />
-                  <span>LinkedIn</span>
+                  <Linkedin className="w-4 h-4" />
                 </a>
                 <a
                   href={`mailto:${personalInfo.email}`}
-                  className="py-2.5 rounded-xl bg-black border border-[#00EA64]/40 text-xs font-semibold text-center text-slate-200 hover:text-[#00EA64] flex items-center justify-center gap-1"
+                  className="p-2.5 rounded-full bg-theme-surfaceSecondary border border-theme-border text-theme-secondary hover:text-theme-accent"
+                  aria-label="Email"
                 >
-                  <Mail className="w-3.5 h-3.5 text-[#00EA64]" />
-                  <span>Mail</span>
+                  <Mail className="w-4 h-4" />
                 </a>
               </div>
-              <a
-                href="#contact"
-                onClick={() => setMobileMenuOpen(false)}
-                className="w-full py-3.5 rounded-full text-sm font-bold text-center text-black bg-[#00EA64] hover:bg-[#10E56A] flex items-center justify-center gap-2 border-none shadow-btn"
-              >
-                <MessageSquare className="w-4 h-4 text-black" />
-                <span>Contact Me</span>
-              </a>
+              <ThemeToggle />
             </div>
           </div>
         </div>

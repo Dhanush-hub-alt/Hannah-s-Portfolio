@@ -21,25 +21,21 @@ export function CertificationsSection() {
       : certifications.filter((c) => c.category === filter);
 
   return (
-    <section id="certifications" className="py-20 lg:py-28 relative bg-black border-t border-[#00EA64]/20">
+    <section id="certifications" className="py-20 lg:py-24 relative bg-theme-bg border-t border-theme-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeader
-          badge="VALIDATED COMPETENCIES"
-          title="Certifications &amp;"
-          highlight="Continuous Learning"
-          description="Formal industry certifications, national technical credentials (NPTEL Elite), and competitive problem-solving recognitions."
-        />
+        {/* Exact Section Title Centered Matching Navbar */}
+        <SectionHeader title="Certifications" />
 
-        {/* Filter Pills in HackerRank Green */}
-        <div className="flex flex-wrap items-center gap-2 mb-10">
+        {/* Filter Pills */}
+        <div className="flex flex-wrap items-center justify-center gap-2 mb-8">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setFilter(cat)}
               className={`px-4 py-2 rounded-full text-xs font-bold transition-all ${
                 filter === cat
-                  ? "bg-[#00EA64] text-black border-none"
-                  : "bg-black border border-[#00EA64]/30 text-[#A7F3D0] hover:text-white hover:border-[#00EA64]"
+                  ? "bg-theme-accent text-white shadow-sm"
+                  : "bg-theme-surface border border-theme-border text-theme-secondary hover:text-theme-primary hover:border-theme-accent"
               }`}
             >
               {cat}
@@ -57,32 +53,32 @@ export function CertificationsSection() {
             return (
               <div
                 key={cert.id}
-                className="p-5 rounded-2xl bg-black border border-[#00EA64]/25 hover:border-[#00EA64] transition-all duration-200 flex flex-col justify-between group"
+                className="p-5 rounded-2xl bg-theme-surface border border-theme-border hover:border-theme-accent transition-all duration-200 flex flex-col justify-between group shadow-sm"
               >
                 <div>
                   <div className="flex items-center justify-between mb-3">
-                    <span className="text-xs font-mono font-bold tracking-wider text-[#00EA64]">
+                    <span className="text-xs font-mono font-bold tracking-wider text-theme-accent">
                       {cert.issuer}
                     </span>
                     {cert.level ? (
-                      <span className="text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full border border-[#00EA64] bg-black text-[#00EA64]">
+                      <span className="text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full border border-theme-accent/40 bg-theme-accent/10 text-theme-accent">
                         {cert.level}
                       </span>
                     ) : (
-                      <span className="text-[10px] font-mono text-[#A7F3D0] px-2 py-0.5 rounded bg-black border border-[#00EA64]/20">
+                      <span className="text-[10px] font-mono text-theme-muted px-2 py-0.5 rounded bg-theme-surfaceSecondary border border-theme-border">
                         Verified
                       </span>
                     )}
                   </div>
 
-                  <h3 className="text-base font-bold text-white group-hover:text-[#00EA64] transition-colors">
+                  <h3 className="text-base font-bold text-theme-primary group-hover:text-theme-accent transition-colors font-display">
                     {cert.name}
                   </h3>
                 </div>
 
-                <div className="mt-5 pt-3 border-t border-[#00EA64]/20 flex items-center justify-between text-xs text-[#A7F3D0]">
+                <div className="mt-5 pt-3 border-t border-theme-border flex items-center justify-between text-xs text-theme-muted">
                   <span className="text-[11px] font-medium">{cert.category}</span>
-                  <div className="w-7 h-7 rounded-lg bg-black flex items-center justify-center text-[#00EA64] group-hover:bg-[#00EA64] group-hover:text-black transition-colors font-bold">
+                  <div className="w-7 h-7 rounded-lg bg-theme-surfaceSecondary flex items-center justify-center text-theme-accent group-hover:bg-theme-accent group-hover:text-white transition-colors font-bold">
                     {isOracle ? (
                       <Cloud className="w-3.5 h-3.5" />
                     ) : isNptel ? (

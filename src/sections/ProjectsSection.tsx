@@ -30,17 +30,13 @@ export function ProjectsSection() {
   };
 
   return (
-    <section id="projects" className="py-20 lg:py-28 relative bg-black border-t border-[#00EA64]/20">
+    <section id="projects" className="py-20 lg:py-24 relative bg-theme-bg border-t border-theme-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeader
-          badge="APPLIED ENGINEERING"
-          title="Selected"
-          highlight="Projects"
-          description="Detailed overview of technical projects spanning edge IoT sensor fusion, healthcare business intelligence, and scientific computational modeling."
-        />
+        {/* Exact Section Title Centered Matching Navbar */}
+        <SectionHeader title="Projects" />
 
         {/* Projects Stack */}
-        <div className="space-y-14">
+        <div className="space-y-12">
           {projects.map((project) => {
             const currentView = activeViews[project.id] || "image";
             const projectImage = getProjectImage(project.id);
@@ -48,67 +44,64 @@ export function ProjectsSection() {
             return (
               <div
                 key={project.id}
-                className="rounded-3xl bg-black border border-[#00EA64]/25 p-6 sm:p-8 lg:p-10 transition-all duration-200 hover:border-[#00EA64] relative overflow-hidden"
+                className="rounded-3xl bg-theme-surface border border-theme-border p-6 sm:p-8 lg:p-10 transition-all duration-200 hover:border-theme-accent relative overflow-hidden shadow-sm"
               >
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative z-10">
                   
-                  {/* Left Column: Project Metadata & Description (5 cols) */}
-                  <div className="lg:col-span-5 flex flex-col justify-between h-full space-y-6">
+                  {/* Left Column: Project Details (5 cols) */}
+                  <div className="lg:col-span-5 flex flex-col justify-between h-full space-y-5">
                     <div>
                       {/* Number and Year */}
                       <div className="flex items-center gap-3">
-                        <span className="text-3xl sm:text-4xl font-extrabold font-mono text-[#00EA64]">
+                        <span className="text-3xl font-extrabold font-mono text-theme-accent">
                           {project.number}
                         </span>
-                        <div className="h-4 w-[1px] bg-[#00EA64]/30" />
-                        <span className="text-xs font-mono font-bold px-2.5 py-1 rounded-md bg-black border border-[#00EA64]/30 text-[#00EA64] flex items-center gap-1.5">
-                          <Calendar className="w-3 h-3 text-[#00EA64]" />
+                        <div className="h-4 w-[1px] bg-theme-border" />
+                        <span className="text-xs font-mono font-bold px-2.5 py-1 rounded-md bg-theme-surfaceSecondary border border-theme-border text-theme-secondary flex items-center gap-1.5">
+                          <Calendar className="w-3 h-3 text-theme-accent" />
                           {project.year}
                         </span>
-                        <span className="text-xs font-mono font-bold px-2.5 py-1 rounded-md bg-black text-[#00EA64] border border-[#00EA64]">
+                        <span className="text-xs font-mono font-bold px-2.5 py-1 rounded-md bg-theme-accent/10 text-theme-accent border border-theme-accent/30">
                           {project.category}
                         </span>
                       </div>
 
                       {/* Title */}
-                      <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mt-4 leading-snug">
+                      <h3 className="text-2xl font-extrabold text-theme-primary tracking-tight mt-4 leading-snug font-display">
                         {project.title}
                       </h3>
 
                       {/* Tagline */}
-                      <p className="text-sm font-semibold text-[#00EA64] mt-1">
+                      <p className="text-sm font-semibold text-theme-accent mt-1">
                         {project.tagline}
                       </p>
 
-                      {/* Short Description */}
-                      <p className="text-sm sm:text-base text-[#A7F3D0] mt-3 leading-relaxed">
+                      {/* Description */}
+                      <p className="text-sm text-theme-secondary mt-2.5 leading-relaxed">
                         {project.description}
                       </p>
 
-                      {/* Technologies Pill Group */}
-                      <div className="mt-5 flex flex-wrap gap-2">
+                      {/* Technologies Pills */}
+                      <div className="mt-4 flex flex-wrap gap-1.5">
                         {project.technologies.map((tech) => (
                           <span
                             key={tech}
-                            className="px-2.5 py-1 text-xs font-semibold rounded-lg bg-black border border-[#00EA64]/25 text-white"
+                            className="px-2.5 py-1 text-xs font-semibold rounded-lg bg-theme-surfaceSecondary border border-theme-border text-theme-primary"
                           >
                             {tech}
                           </span>
                         ))}
                       </div>
 
-                      {/* Key Features Bullet List */}
-                      <div className="mt-6 space-y-2">
-                        <span className="text-xs font-mono uppercase tracking-wider text-[#00EA64] font-bold">
-                          Key Capabilities
-                        </span>
-                        <ul className="space-y-1.5 mt-2">
+                      {/* Key Capabilities */}
+                      <div className="mt-5 space-y-1.5">
+                        <ul className="space-y-1.5">
                           {project.keyFeatures.slice(0, 3).map((feat, fIdx) => (
                             <li
                               key={fIdx}
-                              className="text-xs sm:text-sm text-white/90 flex items-start gap-2"
+                              className="text-xs text-theme-secondary flex items-start gap-2"
                             >
-                              <CheckCircle2 className="w-4 h-4 text-[#00EA64] shrink-0 mt-0.5" />
+                              <CheckCircle2 className="w-4 h-4 text-theme-accent shrink-0 mt-0.5" />
                               <span>{feat}</span>
                             </li>
                           ))}
@@ -117,43 +110,43 @@ export function ProjectsSection() {
                     </div>
 
                     {/* Trigger Full Modal */}
-                    <div className="pt-4 border-t border-[#00EA64]/20">
+                    <div className="pt-3 border-t border-theme-border">
                       <button
                         onClick={() => setSelectedProject(project)}
-                        className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-extrabold text-black bg-[#00EA64] hover:bg-[#10E56A] transition-colors shadow-btn active:scale-95"
+                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold text-white bg-theme-accent hover:bg-theme-accentHover transition-colors shadow-sm active:scale-95"
                       >
-                        <Maximize2 className="w-3.5 h-3.5 text-black" />
-                        <span>Inspect System Specs &amp; Architecture</span>
-                        <ArrowUpRight className="w-3.5 h-3.5 text-black" />
+                        <Maximize2 className="w-3.5 h-3.5" />
+                        <span>Inspect Architecture</span>
+                        <ArrowUpRight className="w-3.5 h-3.5" />
                       </button>
                     </div>
                   </div>
 
-                  {/* Right Column: Related Technical Graphic Image + Interactive Switcher (7 cols) */}
+                  {/* Right Column: Visual Switcher & Interactive Display (7 cols) */}
                   <div className="lg:col-span-7 w-full">
-                    {/* View Switcher Pills */}
+                    {/* View Switcher Controls */}
                     <div className="flex items-center justify-between mb-3 px-1">
-                      <span className="text-[11px] font-mono uppercase tracking-wider text-[#A7F3D0]">
-                        Technical Visual Representation
+                      <span className="text-[11px] font-mono uppercase tracking-wider text-theme-muted">
+                        Technical Visualization
                       </span>
-                      <div className="flex items-center gap-1.5 bg-black p-1 rounded-xl border border-[#00EA64]/30 text-xs">
+                      <div className="flex items-center gap-1.5 bg-theme-surfaceSecondary p-1 rounded-xl border border-theme-border text-xs">
                         <button
                           onClick={() => toggleView(project.id, "image")}
                           className={`px-3 py-1 rounded-lg font-bold flex items-center gap-1.5 transition-all ${
                             currentView === "image"
-                              ? "bg-[#00EA64] text-black"
-                              : "text-[#A7F3D0] hover:text-white"
+                              ? "bg-theme-accent text-white"
+                              : "text-theme-muted hover:text-theme-primary"
                           }`}
                         >
                           <ImageIcon className="w-3.5 h-3.5" />
-                          <span>System Visual</span>
+                          <span>Schematic</span>
                         </button>
                         <button
                           onClick={() => toggleView(project.id, "interactive")}
                           className={`px-3 py-1 rounded-lg font-bold flex items-center gap-1.5 transition-all ${
                             currentView === "interactive"
-                              ? "bg-[#00EA64] text-black"
-                              : "text-[#A7F3D0] hover:text-white"
+                              ? "bg-theme-accent text-white"
+                              : "text-theme-muted hover:text-theme-primary"
                           }`}
                         >
                           <Sliders className="w-3.5 h-3.5" />
@@ -162,10 +155,10 @@ export function ProjectsSection() {
                       </div>
                     </div>
 
-                    {/* Content View */}
-                    <div className="rounded-2xl overflow-hidden border border-[#00EA64]/30 bg-black p-2 sm:p-3">
+                    {/* Content View Container */}
+                    <div className="rounded-2xl overflow-hidden border border-theme-border bg-theme-surfaceSecondary p-2 sm:p-3">
                       {currentView === "image" ? (
-                        <div className="relative w-full aspect-[16/9] rounded-xl overflow-hidden bg-black border border-[#00EA64]/20">
+                        <div className="relative w-full aspect-[16/9] rounded-xl overflow-hidden bg-theme-surface border border-theme-border">
                           <Image
                             src={projectImage}
                             alt={`${project.title} - Technical Representation`}

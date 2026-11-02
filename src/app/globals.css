@@ -1,18 +1,48 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Arctic Intelligence Color System */
 :root {
-  --bg-main: #000000;
-  --bg-secondary: #080F0B;
-  --bg-elevated: #0E1812;
-  --bg-card: #122018;
-  --brand-green: #00EA64;
-  --text-primary: #FFFFFF;
-  --text-secondary: #A7F3D0;
-  --border-subtle: rgba(0, 234, 100, 0.2);
+  /* Light Mode Palette */
+  --bg-app: #F8FAFC;
+  --surface-app: #FFFFFF;
+  --surface-secondary: #F1F5F9;
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+  --text-muted: #64748B;
+  --border-app: #E2E8F0;
+  --accent-app: #2563EB;
+  --accent-cyan: #38BDF8;
+  --accent-hover: #1D4ED8;
+  
+  /* Primary Brand Colors */
+  --electric-blue: #2563EB;
+  --midnight-navy: #0F172A;
+  --ice-cyan: #38BDF8;
+  --arctic-white: #F8FAFC;
+}
+
+.dark, [data-theme="dark"] {
+  /* Dark Mode Palette */
+  --bg-app: #0B1120;
+  --surface-app: #111C30;
+  --surface-secondary: #17243A;
+  --text-primary: #F8FAFC;
+  --text-secondary: #CBD5E1;
+  --text-muted: #94A3B8;
+  --border-app: #26364D;
+  --accent-app: #60A5FA;
+  --accent-cyan: #38BDF8;
+  --accent-hover: #93C5FD;
+  
+  /* Primary Brand Colors Dark */
+  --electric-blue: #60A5FA;
+  --midnight-navy: #0B1120;
+  --deep-slate: #111C30;
+  --sky-cyan: #38BDF8;
 }
 
 * {
@@ -21,64 +51,56 @@
 
 html {
   scroll-behavior: smooth;
-  background-color: #000000;
-  color: #FFFFFF;
-  font-family: 'Manrope', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Sora', 'Inter', system-ui, -apple-system, sans-serif;
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
 }
 
 body {
-  background-color: #000000;
-  color: #FFFFFF;
+  background-color: var(--bg-app);
+  color: var(--text-primary);
   overflow-x: hidden;
   min-height: 100vh;
   position: relative;
-  font-family: 'Manrope', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Sora', 'Inter', system-ui, -apple-system, sans-serif;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 ::selection {
-  background: #00EA64;
-  color: #000000;
+  background: var(--accent-app);
+  color: #FFFFFF;
 }
 
-/* Minimalist Clean Green Scrollbar - NO Glows */
+/* Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #000000;
+  background: var(--bg-app);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #122018;
+  background: var(--border-app);
   border-radius: 9999px;
-  border: 1px solid #00EA64;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #00EA64;
+  background: var(--accent-app);
 }
 
-/* Technical Matte Grid Pattern */
+/* Subtle Technical Grid Pattern */
 .bg-grid-pattern {
-  background-size: 40px 40px;
+  background-size: 44px 44px;
   background-image: 
-    linear-gradient(to right, rgba(0, 234, 100, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 234, 100, 0.04) 1px, transparent 1px);
+    linear-gradient(to right, rgba(96, 165, 250, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(96, 165, 250, 0.05) 1px, transparent 1px);
 }
 
-/* Clean Flat Card - NO Fuzzy Glow */
-.clean-card {
-  background: #000000;
-  border: 1px solid rgba(0, 234, 100, 0.22);
-  transition: all 0.25s ease-out;
-}
-
-.clean-card:hover {
-  border-color: #00EA64;
-  background: #000000;
+.light .bg-grid-pattern, [data-theme="light"] .bg-grid-pattern {
+  background-image: 
+    linear-gradient(to right, rgba(37, 99, 235, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(37, 99, 235, 0.05) 1px, transparent 1px);
 }
 
 @media (prefers-reduced-motion: reduce) {

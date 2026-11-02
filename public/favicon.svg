@@ -1,7 +1,15 @@
 <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M16 12H34V88H16V12Z" fill="#00EA64" />
-  <path d="M66 12H84V88H66V12Z" fill="#00EA64" />
-  <path d="M34 42H66V58H34V42Z" fill="#00EA64" />
-  <path d="M34 26L46 12H56L44 26H34Z" fill="#00EA64" />
-  <path d="M66 74L54 88H44L56 74H66Z" fill="#00EA64" />
+  <defs>
+    <linearGradient id="favBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#2563EB" />
+      <stop offset="100%" stopColor="#38BDF8" />
+    </linearGradient>
+  </defs>
+  <path d="M18 10L32 10L32 60L25 66L18 60L18 10Z" fill="url(#favBlue)" />
+  <path d="M18 60L25 66L25 90L18 84L18 60Z" fill="#2563EB" />
+  <path d="M25 66L32 60L32 84L25 90L25 66Z" fill="#38BDF8" />
+  <path d="M68 40L75 34L82 40L82 90L68 90L68 40Z" fill="url(#favBlue)" />
+  <path d="M68 16L75 10L75 34L68 40L68 16Z" fill="#2563EB" />
+  <path d="M75 10L82 16L82 40L75 34L75 10Z" fill="#38BDF8" />
+  <path d="M32 44L68 44L62 56L26 56L32 44Z" fill="#38BDF8" />
 </svg>

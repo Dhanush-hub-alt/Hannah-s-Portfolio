@@ -15,8 +15,8 @@ import { FooterSection } from "@/sections/FooterSection";
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen bg-black text-white selection:bg-[#00EA64] selection:text-black">
-      {/* Scroll Reading Progress Bar in Spotify/HackerRank Green */}
+    <main className="relative min-h-screen bg-theme-bg text-theme-primary selection:bg-theme-accent selection:text-white transition-colors duration-200">
+      {/* Scroll Reading Progress Bar */}
       <ScrollProgressBar />
 
       {/* Sticky Premium Navigation with modern 'H' brand logo */}
