@@ -1,6 +1,7 @@
 import React from "react";
 import { Navbar } from "@/components/Navbar";
 import { ScrollProgressBar } from "@/components/ScrollProgressBar";
+import { StarfieldBackground } from "@/components/StarfieldBackground";
 import { HeroSection } from "@/sections/HeroSection";
 import { AboutSection } from "@/sections/AboutSection";
 import { SkillsSection } from "@/sections/SkillsSection";
@@ -16,6 +17,9 @@ import { FooterSection } from "@/sections/FooterSection";
 export default function Home() {
   return (
     <main className="relative min-h-screen bg-theme-bg text-theme-primary selection:bg-theme-accent selection:text-white transition-colors duration-200">
+      {/* 3D Visual Starfield Background */}
+      <StarfieldBackground />
+
       {/* Scroll Reading Progress Bar */}
       <ScrollProgressBar />
 
@@ -31,7 +35,7 @@ export default function Home() {
       {/* Section 03: Technical Skills & Expertise */}
       <SkillsSection />
 
-      {/* Section 04: Selected Projects Showcase with Interactive Pipeline */}
+      {/* Section 04: Selected Projects Showcase */}
       <ProjectsSection />
 
       {/* Section 05: Academic Journey / Education */}
