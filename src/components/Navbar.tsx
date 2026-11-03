@@ -164,50 +164,49 @@ export function Navbar() {
 
           {/* Top Most Right: Icon-only Navigation */}
           <div className="flex items-center gap-2 shrink-0">
-            {/* GitHub Icon Only */}
-            <a
-              href={personalInfo.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 sm:p-2.5 rounded-full bg-theme-surface text-theme-secondary hover:text-theme-accent transition-all flex items-center justify-center hover:scale-110 active:scale-95 shadow-none"
-              aria-label="GitHub Profile"
-              title="GitHub"
-            >
-              <Github className="w-4 h-4 transition-transform duration-300 hover:rotate-12" />
-            </a>
+            {/* Desktop Only: GitHub, LinkedIn, Mail, Contact (Hidden on mobile) */}
+            <div className="hidden xl:flex items-center gap-2">
+              <a
+                href={personalInfo.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 sm:p-2.5 rounded-full bg-theme-surface text-theme-secondary hover:text-theme-accent transition-all flex items-center justify-center hover:scale-110 active:scale-95 shadow-none"
+                aria-label="GitHub Profile"
+                title="GitHub"
+              >
+                <Github className="w-4 h-4 transition-transform duration-300 hover:rotate-12" />
+              </a>
 
-            {/* LinkedIn Icon Only */}
-            <a
-              href={personalInfo.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 sm:p-2.5 rounded-full bg-theme-surface text-theme-secondary hover:text-theme-accent transition-all flex items-center justify-center hover:scale-110 active:scale-95 shadow-none"
-              aria-label="LinkedIn Profile"
-              title="LinkedIn"
-            >
-              <Linkedin className="w-4 h-4 transition-transform duration-300 hover:-rotate-12" />
-            </a>
+              <a
+                href={personalInfo.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 sm:p-2.5 rounded-full bg-theme-surface text-theme-secondary hover:text-theme-accent transition-all flex items-center justify-center hover:scale-110 active:scale-95 shadow-none"
+                aria-label="LinkedIn Profile"
+                title="LinkedIn"
+              >
+                <Linkedin className="w-4 h-4 transition-transform duration-300 hover:-rotate-12" />
+              </a>
 
-            {/* Mail Icon Only */}
-            <a
-              href={`mailto:${personalInfo.email}`}
-              className="p-2 sm:p-2.5 rounded-full bg-theme-surface text-theme-secondary hover:text-theme-accent transition-all flex items-center justify-center hover:scale-110 active:scale-95 shadow-none"
-              aria-label="Send Email"
-              title="Email"
-            >
-              <Mail className="w-4 h-4 transition-transform duration-300 hover:scale-110" />
-            </a>
+              <a
+                href={`mailto:${personalInfo.email}`}
+                className="p-2 sm:p-2.5 rounded-full bg-theme-surface text-theme-secondary hover:text-theme-accent transition-all flex items-center justify-center hover:scale-110 active:scale-95 shadow-none"
+                aria-label="Send Email"
+                title="Email"
+              >
+                <Mail className="w-4 h-4 transition-transform duration-300 hover:scale-110" />
+              </a>
 
-            {/* Contact Icon Only */}
-            <a
-              href="#contact"
-              onClick={(e) => handleNavClick(e, "#contact")}
-              className="p-2 sm:p-2.5 rounded-full bg-theme-surface text-theme-secondary hover:text-theme-accent transition-all flex items-center justify-center hover:scale-110 active:scale-95 shadow-none"
-              aria-label="Contact Section"
-              title="Contact Me"
-            >
-              <MessageSquare className="w-4 h-4 transition-transform duration-300 hover:scale-110" />
-            </a>
+              <a
+                href="#contact"
+                onClick={(e) => handleNavClick(e, "#contact")}
+                className="p-2 sm:p-2.5 rounded-full bg-theme-surface text-theme-secondary hover:text-theme-accent transition-all flex items-center justify-center hover:scale-110 active:scale-95 shadow-none"
+                aria-label="Contact Section"
+                title="Contact Me"
+              >
+                <MessageSquare className="w-4 h-4 transition-transform duration-300 hover:scale-110" />
+              </a>
+            </div>
 
             {/* Theme Toggle Button (Light/Dark Mode) */}
             <ThemeToggle />
@@ -265,35 +264,63 @@ export function Navbar() {
               })}
             </div>
 
-            <div className="mt-6 pt-5 flex items-center justify-between">
-              <div className="flex items-center gap-3">
+            {/* Mobile Drawer Connect & Contact Tab Buttons */}
+            <div className="mt-6 pt-5 border-t border-theme-border/40 space-y-4">
+              <div className="text-xs uppercase tracking-wider text-theme-accent px-1 font-bold">
+                Connect & Contact
+              </div>
+              <div className="grid grid-cols-2 gap-2.5">
+                {/* GitHub Button */}
                 <a
                   href={personalInfo.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-full bg-theme-surfaceSecondary text-theme-secondary hover:text-theme-accent"
-                  aria-label="GitHub"
+                  className="p-3 rounded-2xl bg-theme-surfaceSecondary text-theme-primary hover:text-theme-accent flex items-center gap-2.5 text-xs font-semibold transition-colors"
+                  aria-label="GitHub Profile"
                 >
-                  <Github className="w-4 h-4" />
+                  <Github className="w-4 h-4 text-theme-accent shrink-0" />
+                  <span>GitHub</span>
                 </a>
+
+                {/* LinkedIn Button */}
                 <a
                   href={personalInfo.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-full bg-theme-surfaceSecondary text-theme-secondary hover:text-theme-accent"
-                  aria-label="LinkedIn"
+                  className="p-3 rounded-2xl bg-theme-surfaceSecondary text-theme-primary hover:text-theme-accent flex items-center gap-2.5 text-xs font-semibold transition-colors"
+                  aria-label="LinkedIn Profile"
                 >
-                  <Linkedin className="w-4 h-4" />
+                  <Linkedin className="w-4 h-4 text-theme-accent shrink-0" />
+                  <span>LinkedIn</span>
                 </a>
+
+                {/* Mail Button */}
                 <a
                   href={`mailto:${personalInfo.email}`}
-                  className="p-2.5 rounded-full bg-theme-surfaceSecondary text-theme-secondary hover:text-theme-accent"
-                  aria-label="Email"
+                  className="p-3 rounded-2xl bg-theme-surfaceSecondary text-theme-primary hover:text-theme-accent flex items-center gap-2.5 text-xs font-semibold transition-colors"
+                  aria-label="Send Email"
                 >
-                  <Mail className="w-4 h-4" />
+                  <Mail className="w-4 h-4 text-theme-accent shrink-0" />
+                  <span>Mail</span>
+                </a>
+
+                {/* Contact Button */}
+                <a
+                  href="#contact"
+                  onClick={(e) => handleNavClick(e, "#contact")}
+                  className="p-3 rounded-2xl bg-theme-surfaceSecondary text-theme-primary hover:text-theme-accent flex items-center gap-2.5 text-xs font-semibold transition-colors"
+                  aria-label="Contact Section"
+                >
+                  <MessageSquare className="w-4 h-4 text-theme-accent shrink-0" />
+                  <span>Contact</span>
                 </a>
               </div>
-              <ThemeToggle />
+
+              {/* Theme Toggle in Drawer */}
+              <div className="pt-2 flex items-center justify-between">
+                <span className="text-xs text-theme-muted font-medium">Appearance</span>
+                <ThemeToggle />
+              </div>
             </div>
           </div>
         </div>
