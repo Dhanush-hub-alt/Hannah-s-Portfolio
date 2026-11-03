@@ -5,7 +5,7 @@ import { InstallProvider } from "@/context/InstallContext";
 import { ServiceWorkerRegister } from "@/components/ServiceWorkerRegister";
 
 export const viewport: Viewport = {
-  themeColor: "#00e676",
+  themeColor: "#2563EB",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,

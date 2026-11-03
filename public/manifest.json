@@ -11,8 +11,8 @@
     "standalone",
     "minimal-ui"
   ],
-  "background_color": "#0a0a0a",
-  "theme_color": "#00e676",
+  "background_color": "#0B1120",
+  "theme_color": "#2563EB",
   "orientation": "any",
   "lang": "en",
   "dir": "ltr",
@@ -88,4 +88,3 @@
     "productivity"
   ]
 }
-

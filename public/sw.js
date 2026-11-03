@@ -1,5 +1,5 @@
 // Service Worker for Hannah K's Portfolio PWA
-const CACHE_NAME = 'hannah-portfolio-v1';
+const CACHE_NAME = 'hannah-portfolio-v2';
 
 // Essential assets to cache on install for full offline capability
 const PRECACHE_ASSETS = [
