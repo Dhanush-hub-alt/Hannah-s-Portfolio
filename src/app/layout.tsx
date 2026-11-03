@@ -1,6 +1,15 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/context/ThemeContext";
+import { ServiceWorkerRegister } from "@/components/ServiceWorkerRegister";
+
+export const viewport: Viewport = {
+  themeColor: "#00e676",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://hannah-k.dev"),
@@ -19,9 +28,16 @@ export const metadata: Metadata = {
     "Power BI",
     "Python",
     "C++",
+    "PWA",
   ],
   authors: [{ name: "Hannah K" }],
   creator: "Hannah K",
+  manifest: "/manifest.json",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+    title: "Hannah K",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -40,8 +56,14 @@ export const metadata: Metadata = {
     ],
   },
   icons: {
-    icon: "/favicon.svg",
-    apple: "/favicon.svg",
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/icons/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icons/icon-512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [
+      { url: "/icons/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
   },
 };
 
@@ -54,6 +76,16 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth light" data-theme="light" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="apple-mobile-web-app-title" content="Hannah K" />
+        <meta name="application-name" content="Hannah K" />
+        <meta name="msapplication-TileColor" content="#0a0a0a" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
@@ -94,6 +126,7 @@ export default function RootLayout({
       <body className="font-sans bg-theme-bg text-theme-primary antialiased transition-colors duration-200">
         <ThemeProvider>
           {children}
+          <ServiceWorkerRegister />
         </ThemeProvider>
       </body>
     </html>
