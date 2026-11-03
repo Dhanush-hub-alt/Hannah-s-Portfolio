@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/context/ThemeContext";
+import { InstallProvider } from "@/context/InstallContext";
 import { ServiceWorkerRegister } from "@/components/ServiceWorkerRegister";
 
 export const viewport: Viewport = {
@@ -125,8 +126,10 @@ export default function RootLayout({
       </head>
       <body className="font-sans bg-theme-bg text-theme-primary antialiased transition-colors duration-200">
         <ThemeProvider>
-          {children}
-          <ServiceWorkerRegister />
+          <InstallProvider>
+            {children}
+            <ServiceWorkerRegister />
+          </InstallProvider>
         </ThemeProvider>
       </body>
     </html>
