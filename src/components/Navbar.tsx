@@ -315,12 +315,6 @@ export function Navbar() {
                   <span>Contact</span>
                 </a>
               </div>
-
-              {/* Theme Toggle in Drawer */}
-              <div className="pt-2 flex items-center justify-between">
-                <span className="text-xs text-theme-muted font-medium">Appearance</span>
-                <ThemeToggle />
-              </div>
             </div>
           </div>
         </div>
