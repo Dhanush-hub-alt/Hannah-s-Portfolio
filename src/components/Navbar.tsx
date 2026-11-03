@@ -235,7 +235,7 @@ export function Navbar() {
             onClick={() => setMobileMenuOpen(false)}
           />
 
-          <div className="fixed top-20 right-4 left-4 max-h-[calc(100vh-6rem)] overflow-y-auto rounded-3xl bg-theme-surface p-6 shadow-card flex flex-col justify-between border-none">
+          <div className="fixed top-20 right-4 left-4 max-h-[calc(100vh-6rem)] overflow-y-auto no-scrollbar rounded-3xl bg-theme-surface p-6 shadow-card flex flex-col justify-between border-none">
             <div className="flex flex-col space-y-1">
               <div className="text-xs uppercase tracking-wider text-theme-accent px-3 py-2 font-bold">
                 Navigation
